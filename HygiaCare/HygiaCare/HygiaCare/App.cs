@@ -21,7 +21,7 @@ namespace HygiaCare
                     Children = {
                         new Label {
                             HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
+                            Text = "Hola Alina me amas a que si?"
                         }
                     }
                 }
