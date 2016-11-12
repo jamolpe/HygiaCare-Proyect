@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B254F99D-01D0-415F-85A0-D2F48AEC8FA0}</ProjectGuid>
+    <ProjectGuid>{A86BF5B0-C105-4BED-8BC6-2FC0773BC7C9}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>HygiaCare.iOS</RootNamespace>
@@ -137,7 +137,12 @@
     </Reference>
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
-  <Import Project="..\HygiaCare\HygiaCare.projitems" Label="Shared" Condition="Exists('..\HygiaCare\HygiaCare.projitems')" />
+  <ItemGroup>
+    <ProjectReference Include="..\HygiaCare\HygiaCare.csproj">
+      <Project>{87d66335-9398-4c0a-a9f9-0807b5b4c0eb}</Project>
+      <Name>HygiaCare</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
