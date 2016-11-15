@@ -12,7 +12,7 @@ namespace HygiaCare
     {
         public App()
         {
-            MainPage = new Inicio();
+            MainPage = new InicioXAML();
         }
 
         protected override void OnStart()

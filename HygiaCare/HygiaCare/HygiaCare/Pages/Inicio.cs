@@ -17,8 +17,9 @@ namespace HygiaCare.Pages
                 Text = "Prueba de que entro",
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
-                FontSize = Device.GetNamedSize(NamedSize.Large,typeof(Label))
+                FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
             };
+ 
         }
     }
 }
