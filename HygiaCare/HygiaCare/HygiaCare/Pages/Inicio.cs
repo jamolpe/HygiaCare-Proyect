@@ -12,13 +12,16 @@ namespace HygiaCare.Pages
     {
         public Inicio()
         {
-            Content = new Label
+            
+            var lbl1 = new Label
             {
                 Text = "Prueba de que entro",
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
             };
+
+
  
         }
     }

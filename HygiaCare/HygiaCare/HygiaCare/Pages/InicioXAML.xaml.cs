@@ -14,5 +14,10 @@ namespace HygiaCare.Pages
         {
             InitializeComponent();
         }
+
+        void OnButtonClicked(object sender,EventArgs args)
+        {
+            DisplayAlert("Clickeado","Me has clickeado","Salir");
+        }
     }
 }

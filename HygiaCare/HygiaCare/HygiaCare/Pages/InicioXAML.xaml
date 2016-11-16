@@ -12,8 +12,9 @@
 
     <Button Text="Pulsame"
            VerticalOptions="CenterAndExpand"
-           HorizontalOptions="Center"></Button>
-    
+           HorizontalOptions="Center"
+          Clicked="OnButtonClicked"></Button>
+      
     </StackLayout>
  
 </ContentPage>
