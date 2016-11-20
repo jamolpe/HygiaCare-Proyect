@@ -8,17 +8,19 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HygiaCare.ViewModels
+namespace HygiaCare.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {
 
         private List<Hospital> _HospitalesList;
 
-        public List<Hospital> HospitalesList {
+        public List<Hospital> HospitalesList
+        {
             get { return _HospitalesList; }
 
-            set {
+            set
+            {
                 _HospitalesList = value;
                 OnPropertyChanged();
             }
@@ -32,7 +34,6 @@ namespace HygiaCare.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

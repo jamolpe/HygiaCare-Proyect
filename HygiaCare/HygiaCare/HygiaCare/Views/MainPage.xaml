@@ -1,12 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HygiaCare"
              x:Class="HygiaCare.Views.MainPage"
-             xmlns:ViewModels="clr-namespace:HygiaCare.ViewModels;assembly=HygiaCare">
+             xmlns:ViewModel="clr-namespace:HygiaCare.ViewModel;assembly=HygiaCare">
+
+
+
   
   <ContentPage.BindingContext>
-    <ViewModels:MainViewModel />
+    <ViewModel:MainViewModel />
   </ContentPage.BindingContext>
 
-  <ListView ItemsSource="{Binding HospitalesList}"></ListView>
-  </ContentPage>
+  
+ 
+  <ListView ItemsSource="{Binding HospitalesList}" 
+            HasUnevenRows="True"
+            HorizontalOptions="Fill">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout Orientation="Vertical" 
+                       Padding="20"
+                       BackgroundColor="Purple">
+            
+            <Label Text="{Binding Name}" />
+            <Label Text="{Binding ComunidadAutonoma}" />
+          </StackLayout>
+        </ViewCell>  
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+</ContentPage>

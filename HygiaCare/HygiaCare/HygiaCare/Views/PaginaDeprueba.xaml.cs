@@ -8,11 +8,10 @@ using Xamarin.Forms;
 
 namespace HygiaCare.Views
 {
-    public partial class MainPage : ContentPage
+    public partial class PaginaDeprueba : ContentPage
     {
-        public MainPage()
+        public PaginaDeprueba()
         {
-
             InitializeComponent();
         }
     }

@@ -39,9 +39,12 @@
     <Compile Include="Models\Hospital.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\HospitalesServices.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PaginaDeprueba.xaml.cs">
+      <DependentUpon>PaginaDeprueba.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -62,9 +65,14 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\PaginaDeprueba.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
