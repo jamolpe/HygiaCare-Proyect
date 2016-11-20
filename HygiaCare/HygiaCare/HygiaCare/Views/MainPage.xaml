@@ -20,15 +20,19 @@
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
-          <StackLayout Orientation="Vertical">
-          <Grid HeightRequest="40"/>
-          <StackLayout Orientation="Vertical" 
+
+          <StackLayout Orientation="Vertical"
                        Padding="50"
-                       BackgroundColor="Purple">
-            <Label Text="{Binding Name}" />
-            <Label Text="{Binding ComunidadAutonoma}" />
+                       BackgroundColor="#eee">
+            <StackLayout Orientation="Horizontal">
+              <Image Source="logo_hospital_torrevieja.png" />
+              <Label Text="{Binding Name}"
+                     FontSize="24"/>
+              <Label Text="{Binding ComunidadAutonoma}"
+                     FontSize="15"
+                   />
+            </StackLayout>
           </StackLayout>
-         </StackLayout>
         </ViewCell>  
       </DataTemplate>
     </ListView.ItemTemplate>

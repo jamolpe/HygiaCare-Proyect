@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace HygiaCare.Services
 {
@@ -17,7 +18,7 @@ namespace HygiaCare.Services
                 new Hospital
                 {
                        Name = "Vinalopo",
-                       ComunidadAutonoma = "Comunidad Valenciana"
+                       ComunidadAutonoma = "Comunidad Valenciana",
                 },
                 new Hospital
                 {
