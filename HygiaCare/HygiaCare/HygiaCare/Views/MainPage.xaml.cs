@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Text;
+using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
 namespace HygiaCare.Views
 {
-    public class View1 : ContentView
+    public partial class MainPage : ContentPage
     {
-        public View1()
+        public MainPage()
         {
-            Content = new Label { Text = "Hello View" };
+            InitializeComponent();
         }
     }
 }

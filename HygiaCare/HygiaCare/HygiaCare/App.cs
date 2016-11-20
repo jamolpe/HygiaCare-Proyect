@@ -1,4 +1,5 @@
-﻿using HygiaCare.Pages;
+﻿
+using HygiaCare.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace HygiaCare
     {
         public App()
         {
-            MainPage = new InicioXAML();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
