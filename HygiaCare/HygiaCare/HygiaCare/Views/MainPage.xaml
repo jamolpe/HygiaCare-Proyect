@@ -20,13 +20,15 @@
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
+          <StackLayout Orientation="Vertical">
+          <Grid HeightRequest="40"/>
           <StackLayout Orientation="Vertical" 
-                       Padding="20"
+                       Padding="50"
                        BackgroundColor="Purple">
-            
             <Label Text="{Binding Name}" />
             <Label Text="{Binding ComunidadAutonoma}" />
           </StackLayout>
+         </StackLayout>
         </ViewCell>  
       </DataTemplate>
     </ListView.ItemTemplate>
