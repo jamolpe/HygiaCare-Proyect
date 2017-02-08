@@ -15,5 +15,20 @@ namespace HygiaCare.Views
 
             InitializeComponent();
         }
+   
+
+        public void lvItemTapped(object sender, EventArgs e)
+        {
+            var myListView = (ListView)sender;
+            var myItem =myListView.SelectedItem;
+            var hospital = new  Models.Hospital();
+            hospital = (Models.Hospital)myItem;
+
+            DisplayAlert("Alert", "You have been alerted" + hospital.Name, "OK");
+        }
+
+
     }
+
+
 }
