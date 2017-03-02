@@ -7,24 +7,28 @@
     <AbsoluteLayout>
         <ListView
         x:Name="ListHospitales"
-        
-        RowHeight="200"
-       
+        RowHeight="100"
         AbsoluteLayout.LayoutBounds="0,0,1.,1." 
         AbsoluteLayout.LayoutFlags="XProportional,YProportional,HeightProportional,WidthProportional">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <AbsoluteLayout>
-                            <Label Text="{Binding Nombre}"
+                        <StackLayout Orientation="Horizontal">
+                            <Frame BackgroundColor="#e1f5fe"
+                                   Margin="10">
+                                <Image Source="{Binding Imagen}" WidthRequest="100" HeightRequest="100"></Image>
+                            </Frame>
+                            
+                            <StackLayout VerticalOptions="Center">
+                                <Label Text="{Binding Nombre}"
                                    FontSize="30"
-                                   AbsoluteLayout.LayoutBounds=".5,1.,1.,1."
-                                   AbsoluteLayout.LayoutFlags="All"></Label>
-                            <Label Text="{Binding Ciudad}"
+                                   ></Label>
+                                <Label Text="{Binding Ciudad}"
                                     FontSize="Large"
-                                   AbsoluteLayout.LayoutBounds=".5,0.40,0.5,0.5"
-                                   AbsoluteLayout.LayoutFlags="All"></Label>
-                        </AbsoluteLayout>
+                                   ></Label>
+                            </StackLayout>
+                           
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

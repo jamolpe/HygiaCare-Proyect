@@ -27,6 +27,14 @@ namespace Hygia.View
             var HospitalesList = new HospitalesViewModel();
             ListaHospitales = new ObservableCollection<Hospital>(HospitalesList.ListaHospitales);
             ListHospitales.ItemsSource = ListaHospitales;
+
+            ListHospitales.ItemTapped += (object sender, ItemTappedEventArgs e) =>
+            {
+                if (e.Item == null) return;
+
+                ((ListView)sender).SelectedItem = null;
+               
+            };
         }
     }
 

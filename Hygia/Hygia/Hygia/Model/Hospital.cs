@@ -13,5 +13,7 @@ namespace Hygia.Model
         public String Ciudad { get; set; }
         public float coordenadaX{ get; set; }
         public float coordenadaY { get; set; }
+        
+        public String Imagen { get; set; }
     }
 }
