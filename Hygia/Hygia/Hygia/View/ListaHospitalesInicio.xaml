@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hygia.View.ListaHospitalesInicio"
+             Title="Lista Hospitales">
+    
+    <AbsoluteLayout>
+        <ListView
+        x:Name="ListHospitales"
+        
+        RowHeight="200"
+       
+        AbsoluteLayout.LayoutBounds="0,0,1.,1." 
+        AbsoluteLayout.LayoutFlags="XProportional,YProportional,HeightProportional,WidthProportional">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <AbsoluteLayout>
+                            <Label Text="{Binding Nombre}"
+                                   FontSize="30"
+                                   AbsoluteLayout.LayoutBounds=".5,1.,1.,1."
+                                   AbsoluteLayout.LayoutFlags="All"></Label>
+                            <Label Text="{Binding Ciudad}"
+                                    FontSize="Large"
+                                   AbsoluteLayout.LayoutBounds=".5,0.40,0.5,0.5"
+                                   AbsoluteLayout.LayoutFlags="All"></Label>
+                        </AbsoluteLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </AbsoluteLayout>
+    
+</ContentPage>
