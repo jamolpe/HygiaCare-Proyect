@@ -14,7 +14,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <Frame BackgroundColor="#e1f5fe"
+                            <Frame BackgroundColor="#e3f2fd"
                                    Margin="10">
                                 <Image Source="{Binding Imagen}" WidthRequest="100" HeightRequest="100"></Image>
                             </Frame>
