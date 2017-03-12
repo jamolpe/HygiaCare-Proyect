@@ -28,42 +28,23 @@ namespace Hygia.View
             ListaHospitales = new ObservableCollection<Hospital>(HospitalesList.ListaHospitales);
             ListHospitales.ItemsSource = ListaHospitales;
 
-            ListHospitales.ItemTapped += (object sender, ItemTappedEventArgs e) =>
-            {
-                if (e.Item == null) return;
+            //ListHospitales.ItemTapped += (object sender, ItemTappedEventArgs e) =>
+            //{
+            //    if (e.Item == null) return;
 
-                ((ListView)sender).SelectedItem = null;
-               
-            };
+            //    ((ListView)sender).SelectedItem = null;
+                
+            //};
         }
-    }
 
-    class ListaHospitalesInicioViewModel : INotifyPropertyChanged
-    {
-
-        public ListaHospitalesInicioViewModel()
+        public void HospitalClick(object sender, ItemTappedEventArgs e)
         {
-            IncreaseCountCommand = new Command(IncreaseCount);
+            if (e.Item == null) return;
+            Hospital selected = (Hospital)e.Item;
+            ((ListView)sender).SelectedItem = null;
+            Navigation.PushAsync(new HospitalInfo(selected));
         }
-
-        int count;
-
-        string countDisplay = "You clicked 0 times.";
-        public string CountDisplay
-        {
-            get { return countDisplay; }
-            set { countDisplay = value; OnPropertyChanged(); }
-        }
-
-        public ICommand IncreaseCountCommand { get; }
-
-        void IncreaseCount() =>
-            CountDisplay = $"You clicked {++count} times";
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        void OnPropertyChanged([CallerMemberName]string propertyName = "") =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
     }
 }
+
+   
