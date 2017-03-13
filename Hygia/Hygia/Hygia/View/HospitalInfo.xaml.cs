@@ -19,6 +19,7 @@ namespace Hygia.View
     public partial class HospitalInfo : CarouselPage
     {
         Hospital hospital;
+        Position position;
         List<ContentPage> pages = new List<ContentPage>(0);
         public HospitalInfo(Hospital hospital)
         {
@@ -27,7 +28,7 @@ namespace Hygia.View
             this.hospital = hospital;
             this.Titulo.Text = hospital.Nombre;
             AddPin();
-            
+            MoveToPing();
             //pages.Add(new HospitalMap());
 
             //this.Children.Add(pages[0]);
@@ -35,7 +36,7 @@ namespace Hygia.View
 
         public void AddPin()
         {
-            var position = new Position(hospital.coordenadaX, hospital.coordenadaY);
+            position = new Position(hospital.coordenadaX, hospital.coordenadaY);
             var pin = new Pin
             {
                 Type = PinType.Place,
@@ -44,9 +45,15 @@ namespace Hygia.View
                 Address = hospital.Ciudad + " , " + hospital.ComunidadAutonoma
 
             };
+           
             MyMap.Pins.Add(pin);
             
-            MyMap.MoveToRegion(new MapSpan(position,0.05,0.05));
+           
+        }
+
+        public void MoveToPing()
+        {
+            MyMap.MoveToRegion(new MapSpan(position, 0.02, 0.02));
         }
     }
 

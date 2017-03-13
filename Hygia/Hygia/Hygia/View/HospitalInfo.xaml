@@ -19,7 +19,7 @@
                     AbsoluteLayout.LayoutBounds="0.,1.,1.,.40"
                 AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
                       Margin="10"
-                       Padding="0">
+                       Padding="3">
                     <maps:Map x:Name="MyMap"
                          IsShowingUser="true"
                          MapType="Hybrid"
