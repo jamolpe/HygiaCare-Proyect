@@ -27,7 +27,7 @@ namespace Hygia.View
             this.hospital = hospital;
             this.Titulo.Text = hospital.Nombre;
             AddPin();
-            MyMap
+            
             //pages.Add(new HospitalMap());
 
             //this.Children.Add(pages[0]);
@@ -45,7 +45,8 @@ namespace Hygia.View
 
             };
             MyMap.Pins.Add(pin);
-            //MyMap.MoveToRegion(new MapSpan(position));
+            
+            MyMap.MoveToRegion(new MapSpan(position,0.05,0.05));
         }
     }
 
