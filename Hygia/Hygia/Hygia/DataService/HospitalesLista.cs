@@ -18,8 +18,8 @@ namespace Hygia.DataService
                     Nombre = "Hospital de Vinalopo",
                     Ciudad = "Elche",
                     ComunidadAutonoma = "Comunidad Valenciana",
-                    coordenadaX=0.12425F,
-                    coordenadaY = 0.21425F,
+                    coordenadaX=38.2552265,
+                    coordenadaY = -0.7168859,
                     Imagen = "LogoVinalopo.png"
                     
 
@@ -36,20 +36,20 @@ namespace Hygia.DataService
 
                 new Model.Hospital
                 {
-                    Nombre = "Hospital de Alcira",
+                    Nombre = "Hospital de Alzira",
                     Ciudad = "Alcira",
                     ComunidadAutonoma = "Comunidad Valenciana",
-                    coordenadaX=12.12425F,
-                    coordenadaY = 24.21425F,
+                    coordenadaX=39.1597552,
+                    coordenadaY = -0.4173544,
                     Imagen="LogoRivera.png"
                 },
                 new Model.Hospital
                 {
-                    Nombre = "Hospital de Valencia",
+                    Nombre = "Hospital La Fe",
                     Ciudad = "Valencia",
                     ComunidadAutonoma = "Comunidad Valenciana",
-                    coordenadaX=12.12425F,
-                    coordenadaY = 24.21425F
+                    coordenadaX=39.4431804,
+                    coordenadaY = -0.3768042
                 },
             };
 

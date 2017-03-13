@@ -43,14 +43,9 @@ namespace Hygia.View
                 Position = position,
                 Label = hospital.Nombre,
                 Address = hospital.Ciudad + " , " + hospital.ComunidadAutonoma
-
             };
-           
-            MyMap.Pins.Add(pin);
-            
-           
+            MyMap.Pins.Add(pin);  
         }
-
         public void MoveToPing()
         {
             MyMap.MoveToRegion(new MapSpan(position, 0.02, 0.02));
