@@ -44,6 +44,9 @@
     <Compile Include="View\HospitalInfo.xaml.cs">
       <DependentUpon>HospitalInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\HospitalMap.xaml.cs">
+      <DependentUpon>HospitalMap.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ListaHospitalesInicio.xaml.cs">
       <DependentUpon>ListaHospitalesInicio.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\HospitalInfo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\HospitalMap.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -1,5 +1,4 @@
-﻿using Hygia.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -15,23 +14,14 @@ namespace Hygia.View
 {
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HospitalInfo : CarouselPage
+    public partial class HospitalMap : ContentPage
     {
-
-        List<ContentPage> pages = new List<ContentPage>(0);
-        public HospitalInfo(Hospital hospital)
+        public HospitalMap()
         {
             InitializeComponent();
-            this.Title = hospital.Nombre;
 
-            this.Titulo.Text = hospital.Nombre;
-            pages.Add(new HospitalMap());
-
-            this.Children.Add(pages[0]);
         }
     }
 
 
 }
-   
-
