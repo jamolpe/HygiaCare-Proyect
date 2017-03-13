@@ -29,8 +29,8 @@ namespace Hygia.DataService
                     Nombre = "Hospital de Torrevieja",
                     Ciudad = "Torrevieja",
                     ComunidadAutonoma = "Comunidad Valenciana",
-                    coordenadaX=1.12425F,
-                    coordenadaY = 24.21425F,
+                    coordenadaX=37.9850233,
+                    coordenadaY = -0.7293261,
                     Imagen="LogoTorrevieja.png"
                 },
 

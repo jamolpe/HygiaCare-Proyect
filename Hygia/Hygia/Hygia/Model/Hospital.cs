@@ -11,8 +11,8 @@ namespace Hygia.Model
         public String Nombre { get; set; }
         public String ComunidadAutonoma { get; set; }
         public String Ciudad { get; set; }
-        public float coordenadaX{ get; set; }
-        public float coordenadaY { get; set; }
+        public Double coordenadaX{ get; set; }
+        public Double coordenadaY { get; set; }
         
         public String Imagen { get; set; }
     }

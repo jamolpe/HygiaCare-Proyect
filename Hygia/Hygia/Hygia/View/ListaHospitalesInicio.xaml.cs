@@ -42,6 +42,7 @@ namespace Hygia.View
             if (e.Item == null) return;
             Hospital selected = (Hospital)e.Item;
             ((ListView)sender).SelectedItem = null;
+            
             Navigation.PushAsync(new HospitalInfo(selected));
         }
     }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
 namespace Hygia.View
@@ -17,17 +18,34 @@ namespace Hygia.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HospitalInfo : CarouselPage
     {
-
+        Hospital hospital;
         List<ContentPage> pages = new List<ContentPage>(0);
         public HospitalInfo(Hospital hospital)
         {
             InitializeComponent();
             this.Title = hospital.Nombre;
-
+            this.hospital = hospital;
             this.Titulo.Text = hospital.Nombre;
-            pages.Add(new HospitalMap());
+            AddPin();
+            MyMap
+            //pages.Add(new HospitalMap());
 
-            this.Children.Add(pages[0]);
+            //this.Children.Add(pages[0]);
+        }
+
+        public void AddPin()
+        {
+            var position = new Position(hospital.coordenadaX, hospital.coordenadaY);
+            var pin = new Pin
+            {
+                Type = PinType.Place,
+                Position = position,
+                Label = hospital.Nombre,
+                Address = hospital.Ciudad + " , " + hospital.ComunidadAutonoma
+
+            };
+            MyMap.Pins.Add(pin);
+            //MyMap.MoveToRegion(new MapSpan(position));
         }
     }
 
