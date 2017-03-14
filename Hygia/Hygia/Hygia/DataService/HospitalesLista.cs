@@ -37,7 +37,7 @@ namespace Hygia.DataService
                 new Model.Hospital
                 {
                     Nombre = "Hospital de Alzira",
-                    Ciudad = "Alcira",
+                    Ciudad = "Alzira",
                     ComunidadAutonoma = "Comunidad Valenciana",
                     coordenadaX=39.1597552,
                     coordenadaY = -0.4173544,

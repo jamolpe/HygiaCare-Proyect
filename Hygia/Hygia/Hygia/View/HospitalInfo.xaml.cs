@@ -1,16 +1,12 @@
 ﻿using Hygia.Model;
+using Hygia.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
+using static Hygia.ViewModel.GoogleDirectionsJSONTranslation;
 
 namespace Hygia.View
 {
@@ -21,17 +17,23 @@ namespace Hygia.View
         Hospital hospital;
         Position position;
         List<ContentPage> pages = new List<ContentPage>(0);
+        String distancia;
+        WorkingMaps MapsGest;
+
+
         public HospitalInfo(Hospital hospital)
         {
             InitializeComponent();
             this.Title = hospital.Nombre;
             this.hospital = hospital;
             this.Titulo.Text = hospital.Nombre;
+           
+            
             AddPin();
             MoveToPing();
-            //pages.Add(new HospitalMap());
+            Information();
 
-            //this.Children.Add(pages[0]);
+
         }
 
         public void AddPin()
@@ -44,15 +46,25 @@ namespace Hygia.View
                 Label = hospital.Nombre,
                 Address = hospital.Ciudad + " , " + hospital.ComunidadAutonoma
             };
-            MyMap.Pins.Add(pin);  
+            MyMap.Pins.Add(pin);
         }
         public void MoveToPing()
         {
             MyMap.MoveToRegion(new MapSpan(position, 0.02, 0.02));
         }
+
+        public async void Information()
+        {
+            MapsGest = new WorkingMaps();
+            await MapsGest.GetActualPosition();
+            await MapsGest.GetJSON();
+            distancia = MapsGest.GetDistancia();
+                       
+        }
+
+
+
     }
-
-
 }
    
 
