@@ -32,7 +32,7 @@ namespace Hygia.ViewModel
                 var position = await locator.GetPositionAsync(1000);
                 Lat = position.Latitude;
                 Long = position.Longitude;
-                Alt = position.Altitude;
+               
             }
             catch (Exception ex)
             {
@@ -42,10 +42,10 @@ namespace Hygia.ViewModel
             
         }
 
-        public async Task GetJSON()
+        public async Task GetJSONDirecciones(Double latitudDest,Double longitudDest,Double altitudDest)
         {
-            var uri = new Uri("https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyDyRgS5O3z_lwcRXVWXERo7z-j2yK3ESv0");
-
+            await GetActualPosition();
+            var uri = new Uri("https://maps.googleapis.com/maps/api/directions/json?origin="+Lat+","+Long+"&destination="+latitudDest+","+longitudDest+"&key=AIzaSyDyRgS5O3z_lwcRXVWXERo7z-j2yK3ESv0");
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(uri);
             if (response.IsSuccessStatusCode)

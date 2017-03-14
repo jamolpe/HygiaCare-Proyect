@@ -14,19 +14,30 @@
                    FontSize="40"
                    ></Label>
                 </StackLayout>
-                
-                <Frame
-                    AbsoluteLayout.LayoutBounds="0.,1.,1.,.40"
-                AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                      Margin="10"
-                       Padding="3">
-                    <maps:Map x:Name="MyMap"
-                         IsShowingUser="true"
-                         MapType="Hybrid"
-                          
-                        />
 
-                </Frame>
+      
+                    <Frame
+                        AbsoluteLayout.LayoutBounds="0.,.55,0.3,0.15"
+                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                        Margin="10"
+                        Padding="10"
+                        BackgroundColor="#81c784">
+                        <Label x:Name="LblDistancia"
+                               HorizontalTextAlignment="Center"
+                               VerticalOptions="Center"></Label>
+                    </Frame>
+
+                    <Frame AbsoluteLayout.LayoutBounds="0.,1.,1.,.40"
+                           AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                           Margin="10"
+                           Padding="3"
+                           BackgroundColor="#90caf9">
+                        <maps:Map x:Name="MyMap"
+                                 IsShowingUser="true"
+                                 MapType="Hybrid"/>
+                    </Frame>
+                
+
             </AbsoluteLayout>
             
         

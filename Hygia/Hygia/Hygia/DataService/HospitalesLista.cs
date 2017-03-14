@@ -20,6 +20,7 @@ namespace Hygia.DataService
                     ComunidadAutonoma = "Comunidad Valenciana",
                     coordenadaX=38.2552265,
                     coordenadaY = -0.7168859,
+                    coordenadaZ=17,
                     Imagen = "LogoVinalopo.png"
                     
 
@@ -31,6 +32,7 @@ namespace Hygia.DataService
                     ComunidadAutonoma = "Comunidad Valenciana",
                     coordenadaX=37.9636491,
                     coordenadaY = -0.7162335,
+                    coordenadaZ=18,
                     Imagen="LogoTorrevieja.png"
                 },
 
@@ -41,6 +43,7 @@ namespace Hygia.DataService
                     ComunidadAutonoma = "Comunidad Valenciana",
                     coordenadaX=39.1597552,
                     coordenadaY = -0.4173544,
+                    coordenadaZ=18.25,
                     Imagen="LogoRivera.png"
                 },
                 new Model.Hospital
@@ -49,7 +52,8 @@ namespace Hygia.DataService
                     Ciudad = "Valencia",
                     ComunidadAutonoma = "Comunidad Valenciana",
                     coordenadaX=39.4431804,
-                    coordenadaY = -0.3768042
+                    coordenadaY = -0.3768042,
+                    coordenadaZ=18
                 },
             };
 
