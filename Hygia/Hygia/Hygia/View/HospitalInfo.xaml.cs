@@ -26,7 +26,7 @@ namespace Hygia.View
             InitializeComponent();
             this.Title = hospital.Nombre;
             this.hospital = hospital;
-            this.Titulo.Text = hospital.Nombre;
+            //this.Titulo.Text = hospital.Nombre;
             this.hospital = hospital;
             
             AddPin();
@@ -56,11 +56,19 @@ namespace Hygia.View
         public async void Information()
         {
             MapsGest = new WorkingMaps();
-            
-            await MapsGest.GetJSONDirecciones(hospital.coordenadaX,hospital.coordenadaY,hospital.coordenadaZ);
-            distancia = MapsGest.GetDistancia();
 
-            LblDistancia.Text = distancia;         
+            if(await MapsGest.GetActualPosition())
+            {
+                await MapsGest.GetJSONDirecciones(hospital.coordenadaX, hospital.coordenadaY, hospital.coordenadaZ);
+                distancia = MapsGest.GetDistancia();
+            }else
+            {
+                distancia = "No correcto";
+            }
+            
+
+            LblDistancia.Text = distancia;
+            ACCargando.IsRunning = false;
         }
 
 

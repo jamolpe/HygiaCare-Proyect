@@ -23,15 +23,17 @@ namespace Hygia.ViewModel
             Long = 0.0;
             obj = new RootObject();
         }
-        public async Task GetActualPosition()
+        public async Task<bool> GetActualPosition()
         {
+            bool conseguido = false;
             try
             {
                 var locator = CrossGeolocator.Current;
                 locator.DesiredAccuracy = 50;
-                var position = await locator.GetPositionAsync(1000);
+                var position = await locator.GetPositionAsync(6000);
                 Lat = position.Latitude;
                 Long = position.Longitude;
+                conseguido = true;
                
             }
             catch (Exception ex)
@@ -39,13 +41,15 @@ namespace Hygia.ViewModel
                 Debug.WriteLine("Imposible recuperar la posicion " + ex);
                
             }
+
+            return conseguido;
             
         }
 
         public async Task GetJSONDirecciones(Double latitudDest,Double longitudDest,Double altitudDest)
         {
-            await GetActualPosition();
-            var uri = new Uri("https://maps.googleapis.com/maps/api/directions/json?origin="+Lat+","+Long+"&destination="+latitudDest+","+longitudDest+"&key=AIzaSyDyRgS5O3z_lwcRXVWXERo7z-j2yK3ESv0");
+            
+            var uri = new Uri("https://maps.googleapis.com/maps/api/directions/json?origin="+Lat.ToString().Replace(",",".")+","+Long.ToString().Replace(",", ".")+"&destination="+latitudDest.ToString().Replace(",", ".")+","+longitudDest.ToString().Replace(",", ".")+"&key=AIzaSyDyRgS5O3z_lwcRXVWXERo7z-j2yK3ESv0");
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(uri);
             if (response.IsSuccessStatusCode)

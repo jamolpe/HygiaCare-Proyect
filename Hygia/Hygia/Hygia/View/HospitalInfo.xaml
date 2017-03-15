@@ -6,37 +6,53 @@
              Title="HospitalInfo">
     <ContentPage>
         <ScrollView>
-            <AbsoluteLayout>
-                <StackLayout AbsoluteLayout.LayoutBounds="0.5,0."
+            <AbsoluteLayout x:Name="Abs">
+                <!--<StackLayout AbsoluteLayout.LayoutBounds="0.5,0."
                           AbsoluteLayout.LayoutFlags="XProportional,YProportional">
                     <Label x:Name="Titulo"
                    HorizontalOptions="Center"
                    FontSize="40"
                    ></Label>
-                </StackLayout>
-
-      
-                    <Frame
-                        AbsoluteLayout.LayoutBounds="0.,.55,0.3,0.15"
-                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                        Margin="10"
-                        Padding="10"
-                        BackgroundColor="#81c784">
-                        <Label x:Name="LblDistancia"
-                               HorizontalTextAlignment="Center"
-                               VerticalOptions="Center"></Label>
-                    </Frame>
-
-                    <Frame AbsoluteLayout.LayoutBounds="0.,1.,1.,.40"
+                </StackLayout>-->
+                <Frame AbsoluteLayout.LayoutBounds="0.,0.,1.,.40"
                            AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
                            Margin="10"
                            Padding="3"
                            BackgroundColor="#90caf9">
-                        <maps:Map x:Name="MyMap"
+                    <maps:Map x:Name="MyMap"
                                  IsShowingUser="true"
                                  MapType="Hybrid"/>
+                </Frame>
+
+                <Frame x:Name="frameDistancia"
+                        AbsoluteLayout.LayoutBounds="0.,.50,0.4,0.20"
+                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                        Margin="10"
+                        Padding="10"
+                        BackgroundColor="#81c784">
+                    <StackLayout HorizontalOptions="Center">
+                        <Label Text="Distancia"
+                               Font="Bold,20"></Label>
+                        <AbsoluteLayout>
+                            <ActivityIndicator  x:Name="ACCargando" 
+                                    AbsoluteLayout.LayoutBounds="0.5,.5,0.75,0.75"
+                                    AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                                    Color="White" 
+                                    IsRunning="true" 
+                                    ></ActivityIndicator>
+                            <Label x:Name="LblDistancia"
+                               FontSize="Large"
+                               AbsoluteLayout.LayoutBounds="0.5,.5"
+                               AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+                               VerticalOptions="Center"></Label>
+                        </AbsoluteLayout>
+                    </StackLayout>
+
+         
                     </Frame>
-                
+
+
+
 
             </AbsoluteLayout>
             
