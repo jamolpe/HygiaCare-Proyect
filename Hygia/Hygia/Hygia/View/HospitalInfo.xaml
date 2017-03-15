@@ -18,17 +18,17 @@
                            AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
                            Margin="10"
                            Padding="3"
-                           BackgroundColor="#90caf9">
+                           BackgroundColor="#c8e6c9">
                     <maps:Map x:Name="MyMap"
                                  IsShowingUser="true"
                                  MapType="Hybrid"/>
                 </Frame>
                 <Frame x:Name="frameDistancia"
-                        AbsoluteLayout.LayoutBounds="0.,.50,0.4,0.20"
+                        AbsoluteLayout.LayoutBounds="0.,.50,0.5,0.20"
                         AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
                         Margin="10"
                         Padding="10"
-                        BackgroundColor="#81c784">
+                        BackgroundColor="#b9f6ca">
                     <StackLayout HorizontalOptions="Center">
                         <Label Text="Distancia"
                                Font="Bold,20"></Label>
@@ -48,7 +48,7 @@
                     </StackLayout>
                 </Frame >
 
-                <Frame  AbsoluteLayout.LayoutBounds="1.,.50,0.4,0.20"
+                <Frame  AbsoluteLayout.LayoutBounds="1.,.50,0.5,0.20"
                         AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
                         BackgroundColor="#ffccbc"
                         Margin="10"
