@@ -18,6 +18,7 @@ namespace Hygia.View
         Position position;
         List<ContentPage> pages = new List<ContentPage>(0);
         String distancia;
+        String Tiempo;
         WorkingMaps MapsGest;
 
 
@@ -61,14 +62,17 @@ namespace Hygia.View
             {
                 await MapsGest.GetJSONDirecciones(hospital.coordenadaX, hospital.coordenadaY, hospital.coordenadaZ);
                 distancia = MapsGest.GetDistancia();
+                Tiempo = MapsGest.GetTiempo();
             }else
             {
-                distancia = "No correcto";
+                distancia = "N|N";
+                Tiempo = "N|N";
             }
             
-
             LblDistancia.Text = distancia;
-            ACCargando.IsRunning = false;
+            LblTiempo.Text = Tiempo;
+            ACCargandoTiempo.IsRunning = false;
+            ACCargandoDistancia.IsRunning = false;
         }
 
 

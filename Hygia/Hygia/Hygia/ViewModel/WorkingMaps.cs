@@ -30,7 +30,7 @@ namespace Hygia.ViewModel
             {
                 var locator = CrossGeolocator.Current;
                 locator.DesiredAccuracy = 50;
-                var position = await locator.GetPositionAsync(6000);
+                var position = await locator.GetPositionAsync(8000);
                 Lat = position.Latitude;
                 Long = position.Longitude;
                 conseguido = true;
@@ -76,6 +76,21 @@ namespace Hygia.ViewModel
             return distancia.text;
         }
 
+        public String GetTiempo()
+        {
+            GoogleDirectionsJSONTranslation.Duration duracion;
+
+            if (obj!=null){
+                Route ruta = obj.routes.First<Route>();
+                duracion = ruta.legs.First<Leg>().duration;
+            }else
+            {
+                return "0";
+            }
+
+            return duracion.text;
+        }
+
         public Double GetLong()
         {
             return Long;
@@ -90,6 +105,7 @@ namespace Hygia.ViewModel
         {
             return Alt;
         }
+
 
     }
 }

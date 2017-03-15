@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using CoreLocation;
 
 namespace Hygia.iOS
 {
@@ -25,8 +26,22 @@ namespace Hygia.iOS
             global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsMaps.Init();
             LoadApplication(new App());
+            locationOn();
 
             return base.FinishedLaunching(app, options);
+        }
+
+        public void locationOn()
+        {
+            if(CLLocationManager.Status == CLAuthorizationStatus.Denied)
+              {
+                if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+                {
+                    NSString settingsString = UIApplication.OpenSettingsUrlString;
+                    NSUrl url = new NSUrl(settingsString);
+                    UIApplication.SharedApplication.OpenUrl(url);
+                }
+            }
         }
     }
 }

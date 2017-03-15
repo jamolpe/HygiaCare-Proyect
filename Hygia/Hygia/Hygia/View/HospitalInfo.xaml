@@ -23,7 +23,6 @@
                                  IsShowingUser="true"
                                  MapType="Hybrid"/>
                 </Frame>
-
                 <Frame x:Name="frameDistancia"
                         AbsoluteLayout.LayoutBounds="0.,.50,0.4,0.20"
                         AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
@@ -34,7 +33,7 @@
                         <Label Text="Distancia"
                                Font="Bold,20"></Label>
                         <AbsoluteLayout>
-                            <ActivityIndicator  x:Name="ACCargando" 
+                            <ActivityIndicator  x:Name="ACCargandoDistancia" 
                                     AbsoluteLayout.LayoutBounds="0.5,.5,0.75,0.75"
                                     AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
                                     Color="White" 
@@ -47,17 +46,57 @@
                                VerticalOptions="Center"></Label>
                         </AbsoluteLayout>
                     </StackLayout>
+                </Frame >
 
-         
-                    </Frame>
-
-
-
-
+                <Frame  AbsoluteLayout.LayoutBounds="1.,.50,0.4,0.20"
+                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                        BackgroundColor="#ffccbc"
+                        Margin="10"
+                        Padding="10">
+                    <StackLayout HorizontalOptions="Center">
+                        <Label Text="Tiempo ida"
+                               Font="Bold,20"></Label>
+                        <AbsoluteLayout>
+                            <ActivityIndicator  x:Name="ACCargandoTiempo" 
+                                    AbsoluteLayout.LayoutBounds="0.5,.5,0.75,0.75"
+                                    AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                                    Color="White" 
+                                    IsRunning="true">
+                            </ActivityIndicator>
+                            <Label x:Name="LblTiempo"
+                               FontSize="Large"
+                               AbsoluteLayout.LayoutBounds="0.5,.5"
+                               AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+                               VerticalOptions="Center"></Label>
+                        </AbsoluteLayout>
+                    </StackLayout>
+                </Frame>
+    
+                <!--<Frame x:Name="frameDistancia"
+                        AbsoluteLayout.LayoutBounds="1.,.50,0.4,0.20"
+                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                        Margin="10"
+                        Padding="10"
+                        BackgroundColor="#ffccbc">
+                    <StackLayout HorizontalOptions="Center">
+                        <Label Text="Tiempo ida"
+                               Font="Bold,20"></Label>
+                        <AbsoluteLayout>
+                            <ActivityIndicator  x:Name="ACCargandoTiempo" 
+                                    AbsoluteLayout.LayoutBounds="0.5,.5,0.75,0.75"
+                                    AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                                    Color="White" 
+                                    IsRunning="true">
+                            </ActivityIndicator>
+                            <Label x:Name="LblTiempo"
+                               FontSize="Large"
+                               AbsoluteLayout.LayoutBounds="0.5,.5"
+                               AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+                               VerticalOptions="Center"></Label>
+                        </AbsoluteLayout>
+                    </StackLayout>
+                </Frame>-->
             </AbsoluteLayout>
-            
-        
         </ScrollView>
-  
     </ContentPage>
 </CarouselPage>
