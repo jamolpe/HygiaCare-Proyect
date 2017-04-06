@@ -17,5 +17,10 @@ namespace Hygia.ViewModel
             var Hospitales = new HospitalesLista();
             ListaHospitales = Hospitales.GetHospitales();
         }
+
+        public Dictionary<int,int> ObtHoras(String nombreHospital)
+        {
+            return HospitalesLista.ObtenerHoras(nombreHospital);
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace Hygia.DataService
 {
     public class HospitalesLista
     {
+        static List<Hospital> listaHos = new List<Hospital>();
         public List<Hospital> GetHospitales()
         {
             var list = new List<Hospital>
@@ -21,8 +22,8 @@ namespace Hygia.DataService
                     coordenadaX=38.2552265,
                     coordenadaY = -0.7168859,
                     coordenadaZ=17,
-                    Imagen = "LogoVinalopo.png"
-                    
+                    Imagen = "LogoVinalopo.png",
+                    OcupacionHoras = new Dictionary<int, int>()
 
                 },
                 new Model.Hospital
@@ -33,7 +34,8 @@ namespace Hygia.DataService
                     coordenadaX=37.9636491,
                     coordenadaY = -0.7162335,
                     coordenadaZ=18,
-                    Imagen="LogoTorrevieja.png"
+                    Imagen="LogoTorrevieja.png",
+                    OcupacionHoras = new Dictionary<int, int>()
                 },
 
                 new Model.Hospital
@@ -44,7 +46,8 @@ namespace Hygia.DataService
                     coordenadaX=39.1597552,
                     coordenadaY = -0.4173544,
                     coordenadaZ=18.25,
-                    Imagen="LogoRivera.png"
+                    Imagen="LogoRivera.png",
+                     OcupacionHoras = new Dictionary<int, int>()
                 },
                 new Model.Hospital
                 {
@@ -53,11 +56,32 @@ namespace Hygia.DataService
                     ComunidadAutonoma = "Comunidad Valenciana",
                     coordenadaX=39.4431804,
                     coordenadaY = -0.3768042,
-                    coordenadaZ=18
+                    coordenadaZ=18,
+                     OcupacionHoras = new Dictionary<int, int>()
                 },
             };
 
-            return list;
+            listaHos = list;
+            return listaHos;
+        }
+
+        public static Dictionary<int,int> ObtenerHoras(String Hospital)
+        {
+            Dictionary<int, int> Hosphours = new Dictionary<int, int>();
+            foreach(Hospital obj in listaHos)
+            {
+                for(int i = 1; i <= 24; i++)
+                {
+                    Random random = new Random();
+                    obj.OcupacionHoras.Add(i, random.Next() * (1000 - 0) + 0);
+                }
+                if (obj.Nombre == Hospital)
+                {
+                    Hosphours = obj.OcupacionHoras;
+                }
+            }
+
+            return Hosphours;
         }
     }
 }

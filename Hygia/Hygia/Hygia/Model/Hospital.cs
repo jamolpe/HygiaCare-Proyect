@@ -15,5 +15,10 @@ namespace Hygia.Model
         public Double coordenadaY { get; set; }
         public Double coordenadaZ { get; set; }
         public String Imagen { get; set; }
+
+        public Dictionary<int,int> OcupacionHoras { get; set; }
+
+        
+        
     }
 }
