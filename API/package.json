@@ -1,0 +1,20 @@
+{
+  "name": "higiaapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "apihygia.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "azure": "*",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jade": "*",
+    "mssql": "^4.0.1",
+    "request": "^2.76.0",
+    "tedious": "^2.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
