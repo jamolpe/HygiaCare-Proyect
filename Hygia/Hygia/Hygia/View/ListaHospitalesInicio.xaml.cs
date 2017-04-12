@@ -25,7 +25,7 @@ namespace Hygia.View
         public ListaHospitalesInicio()
         {
             InitializeComponent();
-
+	    
 	    ObtenerTodoslosHospitales();
 
             //ListHospitales.ItemTapped += (object sender, ItemTappedEventArgs e) =>
@@ -50,7 +50,11 @@ namespace Hygia.View
 			if (await HospitalesList.ObtenerHospitales())
 			{
 				ListaHospitales = new ObservableCollection<Hospital>(HospitalesList.ListaHospitales);
-				ListHospitales.ItemsSource = ListaHospitales;
+				if(ListaHospitales.Count !=0){
+					ListHospitales.ItemsSource = ListaHospitales;
+					ACCargandoHosp.IsRunning = true;
+				}
+
 			}
 
 		}

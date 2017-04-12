@@ -11,6 +11,7 @@ namespace Hygia.DataService
 	public class ApiDataH
 	{
 		public int id { get; set; }
+		public string ciudad { get; set; }
 		public string nombre { get; set; }
 		public string comunidadAutonoma { get; set; }
 		public string coordenadaX { get; set; }
@@ -19,13 +20,14 @@ namespace Hygia.DataService
 	}
 
     public class HospitalesLista
-    {
+	{
 		public List<ApiDataH> obj = new List<ApiDataH>();
-         static List<Hospital> listaHos = new List<Hospital>();
-
+         	static List<Hospital> listaHos = new List<Hospital>();
 		public List<Hospital> getlistaHos(){
 			return listaHos;
 		}
+
+	/*
         public List<Hospital> GetHospitales()
         {
             var list = new List<Hospital>
@@ -80,6 +82,7 @@ namespace Hygia.DataService
             listaHos = list;
             return listaHos;
 		}
+		*/
 
 
 		public async Task getHospitalesAPI(){
@@ -94,6 +97,7 @@ namespace Hygia.DataService
 				foreach(ApiDataH data in obj){
 					Model.Hospital hosp = new Hospital();
 					hosp.Nombre = data.nombre;
+					hosp.Ciudad = data.ciudad;
 					hosp.coordenadaX = Convert.ToDouble(data.coordenadaX);
 					hosp.coordenadaY = Convert.ToDouble(data.coordenadaY);
 					hosp.ComunidadAutonoma = data.comunidadAutonoma;
