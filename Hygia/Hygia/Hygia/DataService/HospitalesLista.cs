@@ -4,12 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace Hygia.DataService
 {
+	public class ApiDataH
+	{
+		public int id { get; set; }
+		public string nombre { get; set; }
+		public string comunidadAutonoma { get; set; }
+		public string coordenadaX { get; set; }
+		public string coordenadaY { get; set; }
+		public string URLImagen { get; set; }
+	}
+
     public class HospitalesLista
     {
-        static List<Hospital> listaHos = new List<Hospital>();
+		public List<ApiDataH> obj = new List<ApiDataH>();
+         static List<Hospital> listaHos = new List<Hospital>();
+
+		public List<Hospital> getlistaHos(){
+			return listaHos;
+		}
         public List<Hospital> GetHospitales()
         {
             var list = new List<Hospital>
@@ -63,7 +79,33 @@ namespace Hygia.DataService
 
             listaHos = list;
             return listaHos;
-        }
+		}
+
+
+		public async Task getHospitalesAPI(){
+			listaHos = new List<Hospital>();
+			var uri = new Uri("http://apihsp.azurewebsites.net/hospitales");
+			var httpClient = new HttpClient();
+			var response = await httpClient.GetAsync(uri);
+			if (response.IsSuccessStatusCode)
+			{
+				var content = await response.Content.ReadAsStringAsync();
+				obj = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ApiDataH>>(content);
+				foreach(ApiDataH data in obj){
+					Model.Hospital hosp = new Hospital();
+					hosp.Nombre = data.nombre;
+					hosp.coordenadaX = Convert.ToDouble(data.coordenadaX);
+					hosp.coordenadaY = Convert.ToDouble(data.coordenadaY);
+					hosp.ComunidadAutonoma = data.comunidadAutonoma;
+					hosp.Ciudad = "";
+					hosp.OcupacionHoras = new Dictionary<int, int>();
+					listaHos.Add(hosp);
+
+				}
+			}
+
+		}
+
 
         public static Dictionary<int,int> ObtenerHoras(String Hospital)
         {

@@ -19,14 +19,14 @@ namespace Hygia.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListaHospitalesInicio : ContentPage
     {
+		HospitalesViewModel HospitalesList = new HospitalesViewModel();
 
         ObservableCollection<Hospital> ListaHospitales = new ObservableCollection<Hospital>();
         public ListaHospitalesInicio()
         {
             InitializeComponent();
-            var HospitalesList = new HospitalesViewModel();
-            ListaHospitales = new ObservableCollection<Hospital>(HospitalesList.ListaHospitales);
-            ListHospitales.ItemsSource = ListaHospitales;
+
+	    ObtenerTodoslosHospitales();
 
             //ListHospitales.ItemTapped += (object sender, ItemTappedEventArgs e) =>
             //{
@@ -45,6 +45,15 @@ namespace Hygia.View
             
             Navigation.PushAsync(new HospitalInfo(selected));
         }
+
+		public async void ObtenerTodoslosHospitales(){
+			if (await HospitalesList.ObtenerHospitales())
+			{
+				ListaHospitales = new ObservableCollection<Hospital>(HospitalesList.ListaHospitales);
+				ListHospitales.ItemsSource = ListaHospitales;
+			}
+
+		}
     }
 }
 

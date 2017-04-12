@@ -12,15 +12,24 @@ namespace Hygia.ViewModel
     {
         public List<Hospital> ListaHospitales;
 
+	public HospitalesLista Hospitales;
         public HospitalesViewModel()
         {
-            var Hospitales = new HospitalesLista();
-            ListaHospitales = Hospitales.GetHospitales();
+            Hospitales = new HospitalesLista();
+		
         }
 
         public Dictionary<int,int> ObtHoras(String nombreHospital)
         {
             return HospitalesLista.ObtenerHoras(nombreHospital);
         }
+
+	public  async Task<bool> ObtenerHospitales(){
+		 await Hospitales.getHospitalesAPI();
+		
+		ListaHospitales = Hospitales.getlistaHos();
+			return true;
+
+	}
     }
 }
