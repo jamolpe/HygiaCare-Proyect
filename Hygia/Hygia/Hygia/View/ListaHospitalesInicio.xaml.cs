@@ -52,7 +52,7 @@ namespace Hygia.View
 				ListaHospitales = new ObservableCollection<Hospital>(HospitalesList.ListaHospitales);
 				if(ListaHospitales.Count !=0){
 					ListHospitales.ItemsSource = ListaHospitales;
-					ACCargandoHosp.IsRunning = true;
+					ACCargandoHosp.IsRunning = false;
 				}
 
 			}
