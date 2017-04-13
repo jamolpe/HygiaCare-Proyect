@@ -53,6 +53,8 @@ namespace Hygia.View
 				if(ListaHospitales.Count !=0){
 					ListHospitales.ItemsSource = ListaHospitales;
 					ACCargandoHosp.IsRunning = false;
+				}else{
+					await DisplayAlert("Aviso","No se han encontrado hospitales","ok");
 				}
 
 			}

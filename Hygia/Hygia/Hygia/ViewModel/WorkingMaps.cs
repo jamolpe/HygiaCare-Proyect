@@ -30,7 +30,7 @@ namespace Hygia.ViewModel
             {
                 var locator = CrossGeolocator.Current;
                 locator.DesiredAccuracy = 50;
-                var position = await locator.GetPositionAsync(8000);
+                var position = await locator.GetPositionAsync(15000);
                 Lat = position.Latitude;
                 Long = position.Longitude;
                 conseguido = true;
@@ -46,10 +46,10 @@ namespace Hygia.ViewModel
             
         }
 
-        public async Task GetJSONDirecciones(Double latitudDest,Double longitudDest,Double altitudDest)
+	public async Task GetJSONDirecciones(String latitudDest,String longitudDest,String altitudDest)
         {
             
-            var uri = new Uri("https://maps.googleapis.com/maps/api/directions/json?origin="+Lat.ToString().Replace(",",".")+","+Long.ToString().Replace(",", ".")+"&destination="+latitudDest.ToString().Replace(",", ".")+","+longitudDest.ToString().Replace(",", ".")+"&key=AIzaSyDyRgS5O3z_lwcRXVWXERo7z-j2yK3ESv0");
+            var uri = new Uri("https://maps.googleapis.com/maps/api/directions/json?origin="+Lat.ToString().Replace(",",".")+","+Long.ToString().Replace(",", ".")+"&destination="+latitudDest+","+longitudDest+"&key=AIzaSyDyRgS5O3z_lwcRXVWXERo7z-j2yK3ESv0");
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(uri);
             if (response.IsSuccessStatusCode)

@@ -39,7 +39,9 @@ namespace Hygia.View
 
         public void AddPin()
         {
-            position = new Position(hospital.coordenadaX, hospital.coordenadaY);
+		Double x = Double.Parse(hospital.coordenadaX.Replace(".",","));
+		Double y = Double.Parse(hospital.coordenadaY.Replace(".",","));
+		position = new Position(x,y);
             var pin = new Pin
             {
                 Type = PinType.Place,

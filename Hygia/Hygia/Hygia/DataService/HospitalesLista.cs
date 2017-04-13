@@ -98,8 +98,9 @@ namespace Hygia.DataService
 					Model.Hospital hosp = new Hospital();
 					hosp.Nombre = data.nombre;
 					hosp.Ciudad = data.ciudad;
-					hosp.coordenadaX = Convert.ToDouble(data.coordenadaX);
-					hosp.coordenadaY = Convert.ToDouble(data.coordenadaY);
+					hosp.coordenadaX = data.coordenadaX;
+					hosp.coordenadaY = data.coordenadaY;
+					hosp.coordenadaZ = "";
 					hosp.ComunidadAutonoma = data.comunidadAutonoma;
 					hosp.Ciudad = "";
 					hosp.OcupacionHoras = new Dictionary<int, int>();
