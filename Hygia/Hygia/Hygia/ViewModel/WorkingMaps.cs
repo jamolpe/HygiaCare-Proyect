@@ -15,7 +15,6 @@ namespace Hygia.ViewModel
     {
         private Double Lat;
         private Double Long;
-        private Double Alt;
         private RootObject obj;
         public WorkingMaps()
         {

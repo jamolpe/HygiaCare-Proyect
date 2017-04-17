@@ -102,7 +102,6 @@ namespace Hygia.DataService
 					hosp.coordenadaY = data.coordenadaY;
 					hosp.coordenadaZ = "";
 					hosp.ComunidadAutonoma = data.comunidadAutonoma;
-					hosp.Ciudad = "";
 					hosp.OcupacionHoras = new Dictionary<int, int>();
 					listaHos.Add(hosp);
 

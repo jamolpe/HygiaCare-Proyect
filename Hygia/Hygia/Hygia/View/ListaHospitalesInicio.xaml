@@ -31,10 +31,10 @@
                             
                             <StackLayout VerticalOptions="Center">
                                 <Label Text="{Binding Nombre}"
-                                   FontSize="30"
+                                   FontSize="Medium"
                                    ></Label>
-                                <Label Text="{Binding Ciudad}"
-                                    FontSize="Large"
+					<Label Text="{Binding Ciudad}"
+                                    FontSize="Small"
                                    ></Label>
                             </StackLayout>
                            
