@@ -100,11 +100,5 @@ namespace Hygia.ViewModel
             return Lat;
         }
 
-        public Double GetAlt()
-        {
-            return Alt;
-        }
-
-
     }
 }
