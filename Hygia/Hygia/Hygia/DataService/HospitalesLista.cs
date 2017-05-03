@@ -22,10 +22,17 @@ namespace Hygia.DataService
     public class HospitalesLista
 	{
 		public List<ApiDataH> obj = new List<ApiDataH>();
-         	static List<Hospital> listaHos = new List<Hospital>();
+        static List<Hospital> listaHos = new List<Hospital>();
+        public Dictionary<string,int> ocupacionHoras = new Dictionary<string, int>();
+        public List<OcupacionHoras> listOcupacionAPI = new List<OcupacionHoras>();
+
 		public List<Hospital> getlistaHos(){
 			return listaHos;
 		}
+
+        public Dictionary<string,int> getOcupacionHoras(){
+            return ocupacionHoras;
+        }
 
 	/*
         public List<Hospital> GetHospitales()
@@ -93,16 +100,17 @@ namespace Hygia.DataService
 			if (response.IsSuccessStatusCode)
 			{
 				var content = await response.Content.ReadAsStringAsync();
-				obj = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ApiDataH>>(content);
-				foreach(ApiDataH data in obj){
+                obj = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ApiDataH>>(content);
+                foreach(ApiDataH data in obj){
 					Model.Hospital hosp = new Hospital();
+                    hosp.id = data.id;
 					hosp.Nombre = data.nombre;
 					hosp.Ciudad = data.ciudad;
 					hosp.coordenadaX = data.coordenadaX;
 					hosp.coordenadaY = data.coordenadaY;
 					hosp.coordenadaZ = "";
 					hosp.ComunidadAutonoma = data.comunidadAutonoma;
-					hosp.OcupacionHoras = new Dictionary<int, int>();
+					//hosp.OcupacionHoras = new Dictionary<int, int>();
 					listaHos.Add(hosp);
 
 				}
@@ -111,23 +119,22 @@ namespace Hygia.DataService
 		}
 
 
-        public static Dictionary<int,int> ObtenerHoras(String Hospital)
+        public async Task ObtenerHorasAPI(int id)
         {
-            Dictionary<int, int> Hosphours = new Dictionary<int, int>();
-            foreach(Hospital obj in listaHos)
-            {
-                for(int i = 1; i <= 24; i++)
-                {
-                    Random random = new Random();
-                    obj.OcupacionHoras.Add(i, random.Next() * (1000 - 0) + 0);
-                }
-                if (obj.Nombre == Hospital)
-                {
-                    Hosphours = obj.OcupacionHoras;
-                }
-            }
+            Dictionary<string, int> Hosphours = new Dictionary<string, int>();
+			var uri = new Uri("http://apihsp.azurewebsites.net/ocupacionhoras/"+id);
+			var httpClient = new HttpClient();
+			var response = await httpClient.GetAsync(uri);
+			if (response.IsSuccessStatusCode)
+			{
+				var content = await response.Content.ReadAsStringAsync();
+                listOcupacionAPI = Newtonsoft.Json.JsonConvert.DeserializeObject<List<OcupacionHoras>>(content);
+                foreach (OcupacionHoras data in listOcupacionAPI)
+				{
+                    ocupacionHoras.Add(data.Hora,data.ocupacion);
 
-            return Hosphours;
+				}
+			}
         }
     }
 }

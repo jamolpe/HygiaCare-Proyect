@@ -20,7 +20,6 @@ namespace Hygia.View
     public partial class ListaHospitalesInicio : ContentPage
     {
 		HospitalesViewModel HospitalesList = new HospitalesViewModel();
-
         ObservableCollection<Hospital> ListaHospitales = new ObservableCollection<Hospital>();
         public ListaHospitalesInicio()
         {

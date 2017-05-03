@@ -20,7 +20,8 @@ namespace Hygia.View
         String distancia;
         String Tiempo;
         WorkingMaps MapsGest;
-
+        HospitalInfoViewModel info;
+        Dictionary<string,int> OcupacionH;
 
         public HospitalInfo(Hospital hospital)
         {
@@ -33,7 +34,7 @@ namespace Hygia.View
             AddPin();
             MoveToPing();
             Information();
-
+            InformacionOcupacion();
 
         }
 
@@ -75,6 +76,14 @@ namespace Hygia.View
             LblTiempo.Text = Tiempo;
             ACCargandoTiempo.IsRunning = false;
             ACCargandoDistancia.IsRunning = false;
+        }
+
+        public async void InformacionOcupacion(){
+            info = new HospitalInfoViewModel();
+
+            if(await info.ObtenerOcupacionAPI(hospital.id)){
+                OcupacionH = info.ObtenerOcupacion();
+            }
         }
 
 

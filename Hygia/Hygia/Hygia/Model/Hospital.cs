@@ -8,6 +8,7 @@ namespace Hygia.Model
 {
     public class Hospital
     {
+        public int id { get; set; }
         public String Nombre { get; set; }
         public String ComunidadAutonoma { get; set; }
         public String Ciudad { get; set; }

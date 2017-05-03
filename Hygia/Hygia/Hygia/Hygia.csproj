@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\GoogleDirectionsJSONTranslation.cs" />
     <Compile Include="Model\OcupacionHoras.cs" />
+    <Compile Include="ViewModel\HospitalInfoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
