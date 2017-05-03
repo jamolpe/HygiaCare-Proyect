@@ -40,7 +40,6 @@
     </Compile>
     <Compile Include="DataService\HospitalesLista.cs" />
     <Compile Include="Model\Hospital.cs" />
-    <Compile Include="ViewModel\GoogleDirectionsJSONTranslation.cs" />
     <Compile Include="ViewModel\HospitalesViewModel.cs" />
     <Compile Include="ViewModel\WorkingMaps.cs" />
     <Compile Include="View\HospitalInfo.xaml.cs">
@@ -53,6 +52,8 @@
       <DependentUpon>ListaHospitalesInicio.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\GoogleDirectionsJSONTranslation.cs" />
+    <Compile Include="Model\OcupacionHoras.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
