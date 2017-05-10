@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
+using System.Threading.Tasks;
 using static Hygia.ViewModel.GoogleDirectionsJSONTranslation;
 
 namespace Hygia.View
@@ -21,7 +22,7 @@ namespace Hygia.View
         String Tiempo;
         WorkingMaps MapsGest;
         HospitalInfoViewModel info;
-        Dictionary<string,int> OcupacionH;
+        List<OcupacionHoras> OcupacionH;
 
         public HospitalInfo(Hospital hospital)
         {
@@ -33,8 +34,7 @@ namespace Hygia.View
             
             AddPin();
             MoveToPing();
-            Information();
-            InformacionOcupacion();
+            obtenerDatosPantalla();
 
         }
 
@@ -57,7 +57,14 @@ namespace Hygia.View
             MyMap.MoveToRegion(new MapSpan(position, 0.02, 0.02));
         }
 
-        public async void Information()
+        public async void obtenerDatosPantalla(){
+
+            if (await Information())
+            {
+                InformacionOcupacion();
+            }
+        }
+        public async Task<bool> Information()
         {
             MapsGest = new WorkingMaps();
 
@@ -66,6 +73,7 @@ namespace Hygia.View
                 await MapsGest.GetJSONDirecciones(hospital.coordenadaX, hospital.coordenadaY, hospital.coordenadaZ);
                 distancia = MapsGest.GetDistancia();
                 Tiempo = MapsGest.GetTiempo();
+
             }else
             {
                 distancia = "N|N";
@@ -76,6 +84,7 @@ namespace Hygia.View
             LblTiempo.Text = Tiempo;
             ACCargandoTiempo.IsRunning = false;
             ACCargandoDistancia.IsRunning = false;
+            return true;
         }
 
         public async void InformacionOcupacion(){

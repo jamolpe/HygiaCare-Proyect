@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;namespace Hygia.ViewModel
+using System.Threading.Tasks;
+namespace Hygia.ViewModel
 {
     public class HospitalInfoViewModel
     {
         
-        public Dictionary<string,int> OcupacionHoras;
+        public List<OcupacionHoras> OcupacionHoras;
         public HospitalesLista Hospitales;
 
         public HospitalInfoViewModel(){
@@ -24,7 +25,7 @@ using System.Threading.Tasks;namespace Hygia.ViewModel
 
         }
 
-        public Dictionary<string,int> ObtenerOcupacion(){
+        public List<OcupacionHoras> ObtenerOcupacion(){
             return OcupacionHoras;
         }
 

@@ -30,8 +30,8 @@ namespace Hygia.DataService
 			return listaHos;
 		}
 
-        public Dictionary<string,int> getOcupacionHoras(){
-            return ocupacionHoras;
+        public List<OcupacionHoras> getOcupacionHoras(){
+            return listOcupacionAPI;
         }
 
 	/*
@@ -129,11 +129,6 @@ namespace Hygia.DataService
 			{
 				var content = await response.Content.ReadAsStringAsync();
                 listOcupacionAPI = Newtonsoft.Json.JsonConvert.DeserializeObject<List<OcupacionHoras>>(content);
-                foreach (OcupacionHoras data in listOcupacionAPI)
-				{
-                    ocupacionHoras.Add(data.Hora,data.ocupacion);
-
-				}
 			}
         }
     }
