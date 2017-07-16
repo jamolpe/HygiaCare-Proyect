@@ -1,8 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Hygia.View.HospitalInfo"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+            xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
              Title="HospitalInfo">
     <ContentPage>
         <ScrollView>
@@ -70,6 +71,13 @@
                                VerticalOptions="Center"></Label>
                         </AbsoluteLayout>
                     </StackLayout>
+                </Frame>
+                <Frame AbsoluteLayout.LayoutBounds="0.,.90,1.,0.30"
+                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                        BackgroundColor="#ffccbc"
+                        Margin="10"
+                        Padding="10">
+                    <oxy:PlotView x:Name="graph"  VerticalOptions="LayoutOptions.FillAndExpand" HorizontalOptions="LayoutOptions.FillAndExpand" />
                 </Frame>
             </AbsoluteLayout>
         </ScrollView>
