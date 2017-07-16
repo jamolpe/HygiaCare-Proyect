@@ -117,35 +117,25 @@ namespace Hygia.View
         {
             var plotModel = new PlotModel { Title = "Ocupacion por horas" };
 
-            plotModel.Axes.Add(new OxyPlot.Axes.LinearAxis { Position = AxisPosition.Bottom });
-            plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Maximum = 10, Minimum = 0 });
 
-            var series1 = new LineSeries
+            foreach (OcupacionHoras ocupacion in OcupacionH)
             {
-                MarkerType = MarkerType.Star,
-                MarkerSize = 4,
-                MarkerStroke = OxyColors.White
-            };
-            foreach(OcupacionHoras ocupacion in OcupacionH){
-                series1.Points.Add(new DataPoint(0.0, 6.0));
+                var s1 = new BarSeries { Title = ocupacion.Hora, StrokeColor = OxyColors.Aqua };
+                s1.Items.Add(new BarItem{Value = ocupacion.ocupacion});
+				plotModel.Series.Add(s1);
             }
-
-            series1.Points.Add(new DataPoint(1.4, 2.1));
-            series1.Points.Add(new DataPoint(2.0, 4.2));
-            series1.Points.Add(new DataPoint(3.3, 2.3));
-            series1.Points.Add(new DataPoint(4.7, 7.4));
-            series1.Points.Add(new DataPoint(6.0, 6.2));
-            series1.Points.Add(new DataPoint(8.9, 8.9));
-
-            plotModel.Series.Add(series1);
-
-            return plotModel;
+            var valueAxis = new LinearAxis { Position = AxisPosition.Bottom, MinimumPadding = 0, MaximumPadding = 0.06, AbsoluteMinimum = 0 };
+            var categoryAxis = new CategoryAxis { Position = AxisPosition.Bottom };
+			categoryAxis.Labels.Add("Category A");
+            plotModel.Axes.Add(categoryAxis);
+            plotModel.Axes.Add(valueAxis);
+			return plotModel;
         }
 
-        /*public int formatearHoras(String hora){
-            
+        public int formatearHoras(String hora){
+            var part = hora.Split(':');
+            return Int32.Parse(part[0]);
         }
-*/
     }
 }
    

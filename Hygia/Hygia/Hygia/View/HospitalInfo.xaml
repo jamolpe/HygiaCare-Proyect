@@ -75,11 +75,11 @@
                 <Frame AbsoluteLayout.LayoutBounds="0.,.90,1.,0.30"
                         AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
                         BackgroundColor="#ffccbc"
-                        Margin="10"
+                        Margin="10,0,10,10"
                         Padding="10">
                     <oxy:PlotView x:Name="graph"  VerticalOptions="LayoutOptions.FillAndExpand" HorizontalOptions="LayoutOptions.FillAndExpand" />
                 </Frame>
-            </AbsoluteLayout>
+            </AbsoluteLayout>     
         </ScrollView>
     </ContentPage>
 </CarouselPage>
