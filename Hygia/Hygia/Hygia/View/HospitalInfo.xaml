@@ -15,15 +15,64 @@
                    FontSize="40"
                    ></Label>
                 </StackLayout>-->
-                <Frame AbsoluteLayout.LayoutBounds="0.,0.,1.,.40"
+                <StackLayout AbsoluteLayout.LayoutBounds="0.,0.,1.,.40"
                            AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
                            Margin="10"
                            Padding="3"
-                           BackgroundColor="#c8e6c9">
+                           BackgroundColor="Transparent">
                     <maps:Map x:Name="MyMap"
                                  IsShowingUser="true"
                                  MapType="Hybrid"/>
+                </StackLayout>
+                <Frame AbsoluteLayout.LayoutBounds="0.,.50,1.,0.21"
+                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                        BackgroundColor="#f2f2f2">
+                  <StackLayout Orientation="Horizontal">
+                    <StackLayout x:Name="frameDistancia" 
+                            Orientation = "Horizontal"
+                            HorizontalOptions = "Start">
+                       <StackLayout HorizontalOptions="Center">
+                          <Label Text="Distancia"
+                                Font="Bold,20"></Label>
+                            <AbsoluteLayout>
+                                <ActivityIndicator  x:Name="ACCargandoDistancia" 
+                                    AbsoluteLayout.LayoutBounds="0.5,.5,0.75,0.75"
+                                    AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                                    Color="White" 
+                                    IsRunning="true" 
+                                    ></ActivityIndicator>
+                                <Label x:Name="LblDistancia"
+                                        FontSize="Large"
+                                        AbsoluteLayout.LayoutBounds="0.5,.5"
+                                        AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+                                        VerticalOptions="Center"></Label>
+                            </AbsoluteLayout>
+                        </StackLayout>
+                    </StackLayout>
+                  <StackLayout x:Name = "frametiempo"
+                                Orientation = "Horizontal"
+                                HorizontalOptions="EndAndExpand">
+                     <StackLayout HorizontalOptions="Center">
+                        <Label Text="Tiempo ida"
+                               Font="Bold,20"></Label>
+                            <AbsoluteLayout>
+                                <ActivityIndicator  x:Name="ACCargandoTiempo" 
+                                    AbsoluteLayout.LayoutBounds="0.5,.5,0.75,0.75"
+                                    AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                                    Color="White" 
+                                    IsRunning="true">
+                                </ActivityIndicator>
+                                <Label x:Name="LblTiempo"
+                                FontSize="Large"
+                                AbsoluteLayout.LayoutBounds="0.5,.5"
+                                AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+                                 VerticalOptions="Center"></Label>
+                            </AbsoluteLayout>
+                    </StackLayout>
+                  </StackLayout>
+              </StackLayout>
                 </Frame>
+                <!--
                 <Frame x:Name="frameDistancia"
                         AbsoluteLayout.LayoutBounds="0.,.50,0.5,0.20"
                         AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
@@ -72,10 +121,10 @@
                         </AbsoluteLayout>
                     </StackLayout>
                 </Frame>
+                -->
                 <Frame AbsoluteLayout.LayoutBounds="0.,.90,1.,0.30"
                         AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                        BackgroundColor="#ffccbc"
-                        Margin="10,0,10,10"
+                        BackgroundColor="#f2f2f2"
                         Padding="10">
                     <oxy:PlotView x:Name="graph"  VerticalOptions="LayoutOptions.FillAndExpand" HorizontalOptions="LayoutOptions.FillAndExpand" />
                 </Frame>

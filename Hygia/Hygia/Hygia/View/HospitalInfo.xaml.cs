@@ -87,11 +87,12 @@ namespace Hygia.View
                 distancia = "N|N";
                 Tiempo = "N|N";
             }
-
+            /*
             LblDistancia.Text = distancia;
             LblTiempo.Text = Tiempo;
             ACCargandoTiempo.IsRunning = false;
             ACCargandoDistancia.IsRunning = false;
+            */
             return true;
         }
 
