@@ -17,20 +17,20 @@
                 </StackLayout>-->
                 <StackLayout AbsoluteLayout.LayoutBounds="0.,0.,1.,.40"
                            AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                           Margin="10"
-                           Padding="3"
-                           BackgroundColor="Transparent">
+                           BackgroundColor="Transparent"
+                            Margin="0,0,0,10">
                     <maps:Map x:Name="MyMap"
                                  IsShowingUser="true"
                                  MapType="Hybrid"/>
                 </StackLayout>
                 <Frame AbsoluteLayout.LayoutBounds="0.,.50,1.,0.21"
                         AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                        BackgroundColor="#f2f2f2">
+                        BackgroundColor="#e6e6e6">
                   <StackLayout Orientation="Horizontal">
                     <StackLayout x:Name="frameDistancia" 
                             Orientation = "Horizontal"
-                            HorizontalOptions = "Start">
+                            HorizontalOptions = "Start"
+                            VerticalOptions="Center">
                        <StackLayout HorizontalOptions="Center">
                           <Label Text="Distancia"
                                 Font="Bold,20"></Label>
@@ -51,7 +51,8 @@
                     </StackLayout>
                   <StackLayout x:Name = "frametiempo"
                                 Orientation = "Horizontal"
-                                HorizontalOptions="EndAndExpand">
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="Center">
                      <StackLayout HorizontalOptions="Center">
                         <Label Text="Tiempo ida"
                                Font="Bold,20"></Label>
@@ -122,12 +123,20 @@
                     </StackLayout>
                 </Frame>
                 -->
+
                 <Frame AbsoluteLayout.LayoutBounds="0.,.90,1.,0.30"
                         AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                        BackgroundColor="#f2f2f2"
+                        BackgroundColor="#e6e6e6"
                         Padding="10">
-                    <oxy:PlotView x:Name="graph"  VerticalOptions="LayoutOptions.FillAndExpand" HorizontalOptions="LayoutOptions.FillAndExpand" />
+                    <ScrollView Orientation="Horizontal">
+                        <Grid ColumnSpacing="2"
+                            x:Name ="gridgrafico">
+                        
+                        </Grid>
+                    </ScrollView>
+                    <!--<oxy:PlotView x:Name="graph"  VerticalOptions="LayoutOptions.FillAndExpand" HorizontalOptions="LayoutOptions.FillAndExpand" />-->
                 </Frame>
+
             </AbsoluteLayout>     
         </ScrollView>
     </ContentPage>

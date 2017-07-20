@@ -67,6 +67,12 @@ namespace Hygia.View
             {
                 if (await InformacionOcupacion())
                 {
+                    for (int i = 0; i < 10;i++){
+                        gridgrafico.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+                    }
+                    for (int j = 0; j <= 24;j++){
+                        gridgrafico.ColumnDefinitions.Add(new ColumnDefinition{Width = new GridLength(1,GridUnitType.Auto)});
+                    }
                     trabajarGrafo();
                 };
             }
@@ -87,12 +93,12 @@ namespace Hygia.View
                 distancia = "N|N";
                 Tiempo = "N|N";
             }
-            /*
+
             LblDistancia.Text = distancia;
             LblTiempo.Text = Tiempo;
             ACCargandoTiempo.IsRunning = false;
             ACCargandoDistancia.IsRunning = false;
-            */
+
             return true;
         }
 
@@ -111,9 +117,22 @@ namespace Hygia.View
 
         public void trabajarGrafo()
         {
-            var modelEx = new PlotModel { Title = "Example 1" };
-            this.graph.Model = GraficoHoras().Result;
+            foreach(OcupacionHoras ocupacion in OcupacionH){
+                StackLayout stack = new StackLayout()
+                {
+                    BackgroundColor = Color.Blue
+                };
+                stack.HorizontalOptions = LayoutOptions.Center;
+                var hora = formatearHoras(ocupacion.Hora);
+                for (int i = 0; i <= ocupacion.ocupacion;i++){
+                    gridgrafico.Children.Add(stack, hora, i);
+                }
+
+            }
+            //var modelEx = new PlotModel { Title = "Example 1" };
+            //this.graph.Model = GraficoHoras().Result;
         }
+        /*
         public async Task<PlotModel> GraficoHoras()
         {
             var plotModel = new PlotModel { Title = "Ocupacion por horas" };
@@ -132,7 +151,7 @@ namespace Hygia.View
             plotModel.Axes.Add(valueAxis);
 			return plotModel;
         }
-
+        */
         public int formatearHoras(String hora){
             var part = hora.Split(':');
             return Int32.Parse(part[0]);
