@@ -4,6 +4,7 @@
              x:Class="Hygia.View.HospitalInfo"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
             xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
+            xmlns:local="clr-namespace:Hygia.View"
              Title="HospitalInfo">
     <ContentPage>
         <ScrollView>
@@ -128,13 +129,13 @@
                         AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
                         BackgroundColor="#e6e6e6"
                         Padding="10">
-                    <ScrollView Orientation="Horizontal">
-                        <Grid ColumnSpacing="2"
-                            x:Name ="gridgrafico">
-                        
-                        </Grid>
+                    <ScrollView x:Name="scrolgrafo"
+                        Orientation="Horizontal">
+
+                        <local:grafico x:Name="grafico"/>
+
+                       <!--<oxy:PlotView x:Name="graph"  VerticalOptions="LayoutOptions.FillAndExpand" HorizontalOptions="LayoutOptions.FillAndExpand" />-->
                     </ScrollView>
-                    <!--<oxy:PlotView x:Name="graph"  VerticalOptions="LayoutOptions.FillAndExpand" HorizontalOptions="LayoutOptions.FillAndExpand" />-->
                 </Frame>
 
             </AbsoluteLayout>     

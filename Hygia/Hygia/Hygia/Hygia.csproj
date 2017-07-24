@@ -55,10 +55,16 @@
     <Compile Include="Model\GoogleDirectionsJSONTranslation.cs" />
     <Compile Include="Model\OcupacionHoras.cs" />
     <Compile Include="ViewModel\HospitalInfoViewModel.cs" />
+    <Compile Include="View\grafico.xaml.cs">
+      <DependentUpon>grafico.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\grafico.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

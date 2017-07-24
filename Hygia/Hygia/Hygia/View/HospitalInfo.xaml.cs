@@ -67,12 +67,12 @@ namespace Hygia.View
             {
                 if (await InformacionOcupacion())
                 {
-                    for (int i = 0; i < 10;i++){
+                    /*for (int i = 0; i < 10;i++){
                         gridgrafico.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
                     }
                     for (int j = 0; j <= 24;j++){
                         gridgrafico.ColumnDefinitions.Add(new ColumnDefinition{Width = new GridLength(1,GridUnitType.Auto)});
-                    }
+                    }*/
                     trabajarGrafo();
                 };
             }
@@ -117,7 +117,22 @@ namespace Hygia.View
 
         public void trabajarGrafo()
         {
+            List<BoxView> grafos = new List<BoxView>();
             foreach(OcupacionHoras ocupacion in OcupacionH){
+                BoxView box = new BoxView()
+                {
+                    Color = Color.Accent,
+                    HeightRequest = ocupacion.ocupacion,
+                    VerticalOptions = LayoutOptions.End,
+                    StyleId = ocupacion.Hora
+                };
+                box.GestureRecognizers.Add(grafico.nTap());
+
+                grafos.Add(box);
+            }
+            grafico.graficoBox(grafos);
+
+            /*foreach(OcupacionHoras ocupacion in OcupacionH){
                 StackLayout stack = new StackLayout()
                 {
                     BackgroundColor = Color.Blue
@@ -129,10 +144,12 @@ namespace Hygia.View
                 }
 
             }
-            //var modelEx = new PlotModel { Title = "Example 1" };
-            //this.graph.Model = GraficoHoras().Result;
+
+            var modelEx = new PlotModel { Title = "Example 1" };
+            this.graph.Model = GraficoHoras().Result;
+            */
         }
-        /*
+
         public async Task<PlotModel> GraficoHoras()
         {
             var plotModel = new PlotModel { Title = "Ocupacion por horas" };
@@ -151,7 +168,7 @@ namespace Hygia.View
             plotModel.Axes.Add(valueAxis);
 			return plotModel;
         }
-        */
+
         public int formatearHoras(String hora){
             var part = hora.Split(':');
             return Int32.Parse(part[0]);
