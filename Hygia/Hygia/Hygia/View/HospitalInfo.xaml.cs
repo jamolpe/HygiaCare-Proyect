@@ -2,7 +2,7 @@
 using Hygia.ViewModel;
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
@@ -109,19 +109,37 @@ namespace Hygia.View
             if (await info.ObtenerOcupacionAPI(hospital.id))
             {
                 OcupacionH = info.ObtenerOcupacion();
+                reordenarHoras();
                 return true;
             }
             return false;
 
         }
-
+        public void reordenarHoras(){
+          
+            OcupacionH = (from  oc in OcupacionH
+                          where oc.Hora != "00:00"
+                orderby oc.Hora ascending
+                          select oc).ToList();
+            
+        }
         public void trabajarGrafo()
         {
             List<BoxView> grafos = new List<BoxView>();
-            foreach(OcupacionHoras ocupacion in OcupacionH){
+            foreach (OcupacionHoras ocupacion in OcupacionH)
+            {
+                var color = Color.Accent;
+                var tiempo = ocupacion.Hora.Split(':');
+                var hoy = DateTime.Now.ToString("HH");
+                if ( tiempo[0] == hoy){
+                   color = Color.SeaGreen; 
+                } ;
                 BoxView box = new BoxView()
                 {
-                    Color = Color.Accent,
+
+                    Color = color,
+
+
                     HeightRequest = ocupacion.ocupacion,
                     VerticalOptions = LayoutOptions.End,
                     StyleId = ocupacion.Hora
@@ -131,8 +149,9 @@ namespace Hygia.View
                 grafos.Add(box);
             }
             grafico.graficoBox(grafos);
-
-            /*foreach(OcupacionHoras ocupacion in OcupacionH){
+        
+            /*
+              foreach(OcupacionHoras ocupacion in OcupacionH){
                 StackLayout stack = new StackLayout()
                 {
                     BackgroundColor = Color.Blue
@@ -148,8 +167,10 @@ namespace Hygia.View
             var modelEx = new PlotModel { Title = "Example 1" };
             this.graph.Model = GraficoHoras().Result;
             */
+            
         }
 
+        /*
         public async Task<PlotModel> GraficoHoras()
         {
             var plotModel = new PlotModel { Title = "Ocupacion por horas" };
@@ -168,7 +189,7 @@ namespace Hygia.View
             plotModel.Axes.Add(valueAxis);
 			return plotModel;
         }
-
+        */
         public int formatearHoras(String hora){
             var part = hora.Split(':');
             return Int32.Parse(part[0]);

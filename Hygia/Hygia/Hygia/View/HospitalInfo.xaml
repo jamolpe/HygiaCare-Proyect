@@ -129,9 +129,12 @@
                         AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
                         BackgroundColor="#e6e6e6"
                         Padding="10">
+                     <Label
+                            Text="Ocupacion por horas">
+                        </Label>
                     <ScrollView x:Name="scrolgrafo"
                         Orientation="Horizontal">
-
+                       
                         <local:grafico x:Name="grafico"/>
 
                        <!--<oxy:PlotView x:Name="graph"  VerticalOptions="LayoutOptions.FillAndExpand" HorizontalOptions="LayoutOptions.FillAndExpand" />-->
