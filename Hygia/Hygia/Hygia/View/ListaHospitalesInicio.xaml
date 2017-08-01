@@ -8,7 +8,7 @@
            
 		
 		<ActivityIndicator
-				AbsoluteLayout.LayoutBounds="0.5,.5,.5,.5"
+				AbsoluteLayout.LayoutBounds="0.5,.5,.15,.15"
                         AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
 		 x:Name="ACCargandoHosp"
 			Color="Green" 
@@ -30,12 +30,20 @@
                             </Frame>
                             
                             <StackLayout VerticalOptions="Center">
-                                <Label Text="{Binding Nombre}"
+                                <StackLayout>
+                                    <Label Text="{Binding Nombre}"
                                    FontSize="Medium"
                                    ></Label>
-					<Label Text="{Binding Ciudad}"
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Ciudad}"
                                     FontSize="Small"
                                    ></Label>
+                                    <!--<Label Text="120km"
+                                        HorizontalOptions="End">
+                                    </Label>-->
+                                </StackLayout>
+					
                             </StackLayout>
                            
                         </StackLayout>
