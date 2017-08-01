@@ -29,7 +29,8 @@
                                 <Image Source="{Binding Imagen}" WidthRequest="100" HeightRequest="100"></Image>
                             </Frame>
                             
-                            <StackLayout VerticalOptions="Center">
+                            <StackLayout VerticalOptions="Center"
+                                HorizontalOptions="Fill">
                                 <StackLayout>
                                     <Label Text="{Binding Nombre}"
                                    FontSize="Medium"
@@ -39,11 +40,14 @@
                                     <Label Text="{Binding Ciudad}"
                                     FontSize="Small"
                                    ></Label>
-                                    <!--<Label Text="120km"
-                                        HorizontalOptions="End">
-                                    </Label>-->
+                                    
                                 </StackLayout>
-					
+					          <Label x:Name="dist"
+                                    Text="{Binding distancia}"
+                                    FontSize="Small"
+                                    TextColor="Green"
+                                        HorizontalOptions="Start">
+                                    </Label>
                             </StackLayout>
                            
                         </StackLayout>

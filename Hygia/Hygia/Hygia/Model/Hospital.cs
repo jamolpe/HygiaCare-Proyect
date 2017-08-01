@@ -17,7 +17,9 @@ namespace Hygia.Model
 	    public String coordenadaZ { get; set; }
         public String Imagen { get; set; }
 		public Dictionary<string, int> OcupacionHoras { get; set; }
-        public string distancia;
+        public string distancia { get; set; }
+        public Xamarin.Forms.Color colordistancia { get; set; }
+        public string tiempo { get; set; }
 
 	}
 }
