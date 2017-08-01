@@ -19,8 +19,10 @@ namespace Hygia.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListaHospitalesInicio : ContentPage
     {
+        WorkingMaps MapsGest;
+		String distancia;
+		String Tiempo;
 		HospitalesViewModel HospitalesList = new HospitalesViewModel();
-
         ObservableCollection<Hospital> ListaHospitales = new ObservableCollection<Hospital>();
         public ListaHospitalesInicio()
         {
@@ -53,6 +55,7 @@ namespace Hygia.View
 				if(ListaHospitales.Count !=0){
 					ListHospitales.ItemsSource = ListaHospitales;
 					ACCargandoHosp.IsRunning = false;
+                    //reordenarLista();
 				}else{
 					await DisplayAlert("Aviso","No se han encontrado hospitales","ok");
 				}
@@ -60,6 +63,38 @@ namespace Hygia.View
 			}
 
 		}
+
+        /*
+        public async void reordenarLista(){
+            int id = 0;
+            foreach(Hospital hosp in ListaHospitales){
+				MapsGest = new WorkingMaps();
+
+				if (await MapsGest.GetActualPosition())
+				{
+					await MapsGest.GetJSONDirecciones(hosp.coordenadaX, hosp.coordenadaY, hosp.coordenadaZ);
+					distancia = MapsGest.GetDistancia();
+                    ListaHospitales[id].distancia = distancia;
+					Tiempo = MapsGest.GetTiempo();
+                    ordenlista();
+				}
+
+                id++;
+            }
+        }
+
+        public void ordenlista(){
+
+
+            HospitalesList.ListaHospitales = (from Hospital item in HospitalesList.ListaHospitales
+                                              orderby item.distancia ascending
+                               select item).ToList();
+            ListaHospitales = new ObservableCollection<Hospital>(HospitalesList.ListaHospitales);
+			ListHospitales.ItemsSource = ListaHospitales;
+
+			ACCargandoHosp.IsRunning = false;
+        }
+        */
     }
 }
 

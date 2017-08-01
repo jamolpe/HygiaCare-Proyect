@@ -40,7 +40,6 @@
     </Compile>
     <Compile Include="DataService\HospitalesLista.cs" />
     <Compile Include="Model\Hospital.cs" />
-    <Compile Include="ViewModel\GoogleDirectionsJSONTranslation.cs" />
     <Compile Include="ViewModel\HospitalesViewModel.cs" />
     <Compile Include="ViewModel\WorkingMaps.cs" />
     <Compile Include="View\HospitalInfo.xaml.cs">
@@ -53,10 +52,19 @@
       <DependentUpon>ListaHospitalesInicio.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\GoogleDirectionsJSONTranslation.cs" />
+    <Compile Include="Model\OcupacionHoras.cs" />
+    <Compile Include="ViewModel\HospitalInfoViewModel.cs" />
+    <Compile Include="View\grafico.xaml.cs">
+      <DependentUpon>grafico.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\grafico.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -98,6 +106,12 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Maps">
       <HintPath>..\..\packages\Xamarin.Forms.Maps.2.3.4.224\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10\Xamarin.Forms.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot">
+      <HintPath>..\..\packages\OxyPlot.Core.1.0.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.Xamarin.Forms">
+      <HintPath>..\..\packages\OxyPlot.Xamarin.Forms.1.0.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10\OxyPlot.Xamarin.Forms.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

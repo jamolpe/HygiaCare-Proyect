@@ -24,7 +24,9 @@ namespace Hygia.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
             Xamarin.FormsMaps.Init();
+            OxyPlot.Xamarin.Forms.Platform.iOS.PlotViewRenderer.Init();
             LoadApplication(new App());
             locationOn();
 

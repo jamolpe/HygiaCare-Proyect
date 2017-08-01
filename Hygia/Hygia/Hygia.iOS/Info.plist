@@ -25,7 +25,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Hygia</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.Hygia</string>
+	<string>com.Javier.Hygia.Hygia</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>CFBundleIconFiles</key>
@@ -52,5 +52,9 @@
 	<string>Can we use your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We are using your location</string>
+	<key>CFBundleName</key>
+	<string>Hygia</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.1</string>
 </dict>
 </plist>
