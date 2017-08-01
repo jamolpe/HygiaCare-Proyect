@@ -44,7 +44,6 @@ namespace Hygia.View
             if (e.Item == null) return;
             Hospital selected = (Hospital)e.Item;
             ((ListView)sender).SelectedItem = null;
-            
             Navigation.PushAsync(new HospitalInfo(selected));
         }
 
@@ -67,27 +66,32 @@ namespace Hygia.View
 
         public async void reordenarLista(){
             int id = 0;
-            foreach(Hospital hosp in ListaHospitales){
+            ObservableCollection<Hospital> ListaHospitalesOrdenacion = new ObservableCollection<Hospital>();
+            foreach(Hospital hosp in ListHospitales.ItemsSource){
 				MapsGest = new WorkingMaps();
 
 				if (await MapsGest.GetActualPosition())
 				{
 					await MapsGest.GetJSONDirecciones(hosp.coordenadaX, hosp.coordenadaY, hosp.coordenadaZ);
 					distancia = MapsGest.GetDistancia();
-                    ListaHospitales[id].distancia = distancia;
+                    hosp.distancia = distancia;
 					Tiempo = MapsGest.GetTiempo();
-                    ordenlista();
+                   
+					ordenlista();
+                    BindingContext = this;
 				}
 
                 id++;
             }
         }
 
+
         public void ordenlista(){
 
 
             HospitalesList.ListaHospitales = (from Hospital item in HospitalesList.ListaHospitales
                                               orderby item.distancia ascending
+
                                select item).ToList();
             ListaHospitales = new ObservableCollection<Hospital>(HospitalesList.ListaHospitales);
 			ListHospitales.ItemsSource = ListaHospitales;
