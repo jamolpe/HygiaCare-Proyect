@@ -42,8 +42,10 @@
                                    ></Label>
                                     
                                 </StackLayout>
-					            <Label x:Name="dist"
+					          <Label x:Name="dist"
                                     Text="{Binding distancia}"
+                                    FontSize="Small"
+                                    TextColor="Green"
                                         HorizontalOptions="Start">
                                     </Label>
                             </StackLayout>

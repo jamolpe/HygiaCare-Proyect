@@ -76,7 +76,6 @@ namespace Hygia.View
 					distancia = MapsGest.GetDistancia();
                     hosp.distancia = distancia;
 					Tiempo = MapsGest.GetTiempo();
-                   
 					ordenlista();
                     BindingContext = this;
 				}
