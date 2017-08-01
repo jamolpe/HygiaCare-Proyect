@@ -55,7 +55,7 @@ namespace Hygia.View
 				if(ListaHospitales.Count !=0){
 					ListHospitales.ItemsSource = ListaHospitales;
 					ACCargandoHosp.IsRunning = false;
-                    //reordenarLista();
+                    reordenarLista();
 				}else{
 					await DisplayAlert("Aviso","No se han encontrado hospitales","ok");
 				}
@@ -64,7 +64,7 @@ namespace Hygia.View
 
 		}
 
-        /*
+
         public async void reordenarLista(){
             int id = 0;
             foreach(Hospital hosp in ListaHospitales){
@@ -94,7 +94,7 @@ namespace Hygia.View
 
 			ACCargandoHosp.IsRunning = false;
         }
-        */
+
     }
 }
 
