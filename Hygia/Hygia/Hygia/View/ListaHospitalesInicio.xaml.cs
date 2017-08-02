@@ -19,6 +19,16 @@ namespace Hygia.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListaHospitalesInicio : ContentPage
     {
+		private bool _isRefreshing = false;
+		public bool IsRefreshing
+		{
+			get { return _isRefreshing; }
+			set
+			{
+				_isRefreshing = value;
+				OnPropertyChanged(nameof(IsRefreshing));
+			}
+		}
         WorkingMaps MapsGest;
 		String distancia;
 		String Tiempo;
@@ -47,7 +57,7 @@ namespace Hygia.View
             Navigation.PushAsync(new HospitalInfo(selected));
         }
 
-		public async void ObtenerTodoslosHospitales(){
+		public async Task ObtenerTodoslosHospitales(){
 			if (await HospitalesList.ObtenerHospitales())
 			{
 				ListaHospitales = new ObservableCollection<Hospital>(HospitalesList.ListaHospitales);
@@ -98,6 +108,21 @@ namespace Hygia.View
 
 			ACCargandoHosp.IsRunning = false;
         }
+
+		public ICommand RefreshCommand
+		{
+			get
+			{
+				return new Command(async () =>
+				{
+					IsRefreshing = true;
+
+					await ObtenerTodoslosHospitales();
+
+					IsRefreshing = false;
+				});
+			}
+		}
 
     }
 }
