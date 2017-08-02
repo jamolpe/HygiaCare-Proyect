@@ -122,6 +122,10 @@
     <BundleResource Include="Resources\Icon-Small%402x.png" />
     <BundleResource Include="Resources\Icon-Small%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\centro.png" />
+    <BundleResource Include="Resources\hospital.png" />
+    <BundleResource Include="Resources\placeholder.png" />
+    <BundleResource Include="Resources\clock.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Plugin.Geolocator, Version=3.0.4.0, Culture=neutral, processorArchitecture=MSIL">

@@ -17,6 +17,7 @@ namespace Hygia.DataService
 		public string coordenadaX { get; set; }
 		public string coordenadaY { get; set; }
 		public string URLImagen { get; set; }
+        public string tipo { get; set; }
 	}
 
     public class HospitalesLista
@@ -110,6 +111,13 @@ namespace Hygia.DataService
 					hosp.coordenadaY = data.coordenadaY;
 					hosp.coordenadaZ = "";
 					hosp.ComunidadAutonoma = data.comunidadAutonoma;
+                    if(data.tipo == "Hospital"){
+                        hosp.Imagen = "hospital.png";
+                    }else{
+                        hosp.Imagen = "centro.png";
+                    }
+                    hosp.tipo = data.tipo;
+
 					//hosp.OcupacionHoras = new Dictionary<int, int>();
 					listaHos.Add(hosp);
 

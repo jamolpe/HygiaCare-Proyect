@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +20,7 @@ namespace Hygia.Model
         public string distancia { get; set; }
         public Xamarin.Forms.Color colordistancia { get; set; }
         public string tiempo { get; set; }
+        public string tipo { get; set; }
 
 	}
 }

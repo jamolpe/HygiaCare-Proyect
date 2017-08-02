@@ -42,11 +42,15 @@
                                     Color="White" 
                                     IsRunning="true" 
                                     ></ActivityIndicator>
-                                <Label x:Name="LblDistancia"
-                                        FontSize="Large"
+                                    <StackLayout Orientation="Horizontal"
                                         AbsoluteLayout.LayoutBounds="0.5,.5"
                                         AbsoluteLayout.LayoutFlags="XProportional,YProportional"
-                                        VerticalOptions="Center"></Label>
+                                        VerticalOptions="Center">
+                                        <Label x:Name="LblDistancia"
+                                        FontSize="Large"
+                                        ></Label>
+                                     <Image Source="placeholder.png" WidthRequest="30" HeightRequest="30"></Image>
+                                    </StackLayout>
                             </AbsoluteLayout>
                         </StackLayout>
                     </StackLayout>
@@ -64,11 +68,16 @@
                                     Color="White" 
                                     IsRunning="true">
                                 </ActivityIndicator>
-                                <Label x:Name="LblTiempo"
-                                FontSize="Large"
-                                AbsoluteLayout.LayoutBounds="0.5,.5"
-                                AbsoluteLayout.LayoutFlags="XProportional,YProportional"
-                                 VerticalOptions="Center"></Label>
+                                    <StackLayout Orientation="Horizontal"
+                                                AbsoluteLayout.LayoutBounds="0.5,.5"
+                                                AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+                                                 VerticalOptions="Center">
+                                        <Label x:Name="LblTiempo"
+                                                FontSize="Large"
+                                                ></Label>
+                                    <Image Source="clock.png" WidthRequest="30" HeightRequest="30"></Image>
+                                    </StackLayout>
+                                
                             </AbsoluteLayout>
                     </StackLayout>
                   </StackLayout>

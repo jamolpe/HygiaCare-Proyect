@@ -1,4 +1,4 @@
-﻿using Hygia.Model;
+﻿﻿using Hygia.Model;
 using Hygia.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -52,6 +52,7 @@ namespace Hygia.View
 			{
 				ListaHospitales = new ObservableCollection<Hospital>(HospitalesList.ListaHospitales);
 				if(ListaHospitales.Count !=0){
+                    
 					ListHospitales.ItemsSource = ListaHospitales;
 					ACCargandoHosp.IsRunning = false;
                     reordenarLista();
