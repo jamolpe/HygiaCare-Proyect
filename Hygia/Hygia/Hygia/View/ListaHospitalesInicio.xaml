@@ -42,12 +42,16 @@
                                    ></Label>
                                     
                                 </StackLayout>
-					          <Label x:Name="dist"
+                                <StackLayout Orientation="Horizontal">
+                                     <Label x:Name="dist"
                                     Text="{Binding distancia}"
                                     FontSize="Small"
                                     TextColor="Green"
                                         HorizontalOptions="Start">
                                     </Label>
+                                <Image Source="placeholder.png" WidthRequest="20" HeightRequest="20"></Image> 
+                                </StackLayout>
+					         
                             </StackLayout>
                            
                         </StackLayout>
