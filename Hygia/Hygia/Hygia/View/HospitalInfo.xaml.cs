@@ -96,6 +96,8 @@ namespace Hygia.View
 
             LblDistancia.Text = distancia;
             LblTiempo.Text = Tiempo;
+            imgping.IsVisible = true;
+            imgreloj.IsVisible = true;
             ACCargandoTiempo.IsRunning = false;
             ACCargandoDistancia.IsRunning = false;
 

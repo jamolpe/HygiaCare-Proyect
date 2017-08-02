@@ -8,7 +8,7 @@
              Title="HospitalInfo">
     <ContentPage>
         <ScrollView>
-            <AbsoluteLayout x:Name="Abs">
+            <StackLayout x:Name="Abs">
                 <!--<StackLayout AbsoluteLayout.LayoutBounds="0.5,0."
                           AbsoluteLayout.LayoutFlags="XProportional,YProportional">
                     <Label x:Name="Titulo"
@@ -16,32 +16,33 @@
                    FontSize="40"
                    ></Label>
                 </StackLayout>-->
-                <StackLayout AbsoluteLayout.LayoutBounds="0.,0.,1.,.40"
-                           AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                <StackLayout 
                            BackgroundColor="Transparent"
                             Margin="0,0,0,10">
                     <maps:Map x:Name="MyMap"
                                  IsShowingUser="true"
-                                 MapType="Hybrid"/>
+                                 MapType="Hybrid"
+                    HeightRequest="300"
+                        HorizontalOptions="FillAndExpand"
+                    WidthRequest="100"/>
                 </StackLayout>
-                <StackLayout AbsoluteLayout.LayoutBounds="0.,.50,1.,0.21"
-                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                        >
-                  <StackLayout Orientation="Horizontal"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Center">
+                <StackLayout 
+                        Orientation="Horizontal">
+                  
                     <StackLayout x:Name="frameDistancia" 
                             Orientation = "Horizontal"
-                            HorizontalOptions = "Center"
-                            VerticalOptions="Center">
-                       <StackLayout HorizontalOptions="Center">
+                            HorizontalOptions = "StartAndExpand"
+                            VerticalOptions="Center"
+                        Margin="20,0,0,0">
+                       <StackLayout HorizontalOptions="StartAndExpand"
+                                VerticalOptions="Center">
                           <Label Text="Distancia"
                                 Font="Bold,20"></Label>
                             <AbsoluteLayout>
                                 <ActivityIndicator  x:Name="ACCargandoDistancia" 
                                     AbsoluteLayout.LayoutBounds="0.5,.5,0.75,0.75"
                                     AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                                    Color="White" 
+                                    Color="#DC143C" 
                                     IsRunning="true" 
                                     ></ActivityIndicator>
                                     <StackLayout Orientation="Horizontal"
@@ -51,7 +52,7 @@
                                         <Label x:Name="LblDistancia"
                                         FontSize="Large"
                                         ></Label>
-                                     <Image Source="placeholder.png" WidthRequest="30" HeightRequest="30"></Image>
+                                     <Image x:Name="imgping" Source="placeholder.png" WidthRequest="30" HeightRequest="30" IsVisible="false"></Image>
                                     </StackLayout>
                             </AbsoluteLayout>
                         </StackLayout>
@@ -59,7 +60,8 @@
                   <StackLayout x:Name = "frametiempo"
                                 Orientation = "Horizontal"
                                 HorizontalOptions="EndAndExpand"
-                                VerticalOptions="Center">
+                                VerticalOptions="Center"
+                        Margin="0,0,20,0">
                      <StackLayout HorizontalOptions="Center">
                         <Label Text="Tiempo ida"
                                Font="Bold,20"></Label>
@@ -67,7 +69,7 @@
                                 <ActivityIndicator  x:Name="ACCargandoTiempo" 
                                     AbsoluteLayout.LayoutBounds="0.5,.5,0.75,0.75"
                                     AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                                    Color="White" 
+                                    Color="#DC143C" 
                                     IsRunning="true">
                                 </ActivityIndicator>
                                     <StackLayout Orientation="Horizontal"
@@ -77,13 +79,12 @@
                                         <Label x:Name="LblTiempo"
                                                 FontSize="Large"
                                                 ></Label>
-                                    <Image Source="clock.png" WidthRequest="30" HeightRequest="30"></Image>
+                                    <Image x:Name="imgreloj" Source="clock.png" WidthRequest="30" HeightRequest="30" IsVisible="false"></Image>
                                     </StackLayout>
                                 
                             </AbsoluteLayout>
                     </StackLayout>
                   </StackLayout>
-              </StackLayout>
                 </StackLayout>
                 <!--
                 <Frame x:Name="frameDistancia"
@@ -135,9 +136,11 @@
                     </StackLayout>
                 </Frame>
                 -->
-
-                <Frame AbsoluteLayout.LayoutBounds="0.,.90,1.,0.30"
-                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
+                <StackLayout Margin="0,20">
+                    <Label Text="Ocupacion por horas"
+                        FontSize="20"
+                    HorizontalOptions="Center"></Label>
+                <Frame 
                         BackgroundColor="#e6e6e6"
                         Padding="10">
                      <Label
@@ -151,8 +154,8 @@
                        <!--<oxy:PlotView x:Name="graph"  VerticalOptions="LayoutOptions.FillAndExpand" HorizontalOptions="LayoutOptions.FillAndExpand" />-->
                     </ScrollView>
                 </Frame>
-
-            </AbsoluteLayout>     
+                </StackLayout>
+            </StackLayout>     
         </ScrollView>
     </ContentPage>
 </CarouselPage>
