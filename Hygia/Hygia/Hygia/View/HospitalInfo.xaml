@@ -24,13 +24,15 @@
                                  IsShowingUser="true"
                                  MapType="Hybrid"/>
                 </StackLayout>
-                <Frame AbsoluteLayout.LayoutBounds="0.,.50,1.,0.21"
+                <StackLayout AbsoluteLayout.LayoutBounds="0.,.50,1.,0.21"
                         AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                        BackgroundColor="#e6e6e6">
-                  <StackLayout Orientation="Horizontal">
+                        >
+                  <StackLayout Orientation="Horizontal"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
                     <StackLayout x:Name="frameDistancia" 
                             Orientation = "Horizontal"
-                            HorizontalOptions = "Start"
+                            HorizontalOptions = "Center"
                             VerticalOptions="Center">
                        <StackLayout HorizontalOptions="Center">
                           <Label Text="Distancia"
@@ -82,7 +84,7 @@
                     </StackLayout>
                   </StackLayout>
               </StackLayout>
-                </Frame>
+                </StackLayout>
                 <!--
                 <Frame x:Name="frameDistancia"
                         AbsoluteLayout.LayoutBounds="0.,.50,0.5,0.20"
