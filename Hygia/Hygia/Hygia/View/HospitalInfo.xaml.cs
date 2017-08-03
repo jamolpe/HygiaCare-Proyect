@@ -25,7 +25,7 @@ namespace Hygia.View
         HospitalInfoViewModel info;
         List<OcupacionHoras> OcupacionH;
 
-        public HospitalInfo(Hospital hospital,List<Hospital> listcercanos)
+        public HospitalInfo(Hospital hospital,System.Collections.IEnumerable listahospitales)
         {
             InitializeComponent();
             this.Title = hospital.Nombre;
@@ -36,8 +36,8 @@ namespace Hygia.View
             AddPin();
             MoveToPing();
             obtenerDatosPantalla();
-            cargarCentrosCercanos(listcercanos);
-        }
+            cargarCentrosCercanos(ObtenerHospCercanos(hospital,listahospitales));
+		}
 
         public void AddPin()
         {
@@ -65,12 +65,7 @@ namespace Hygia.View
             {
                 if (await InformacionOcupacion())
                 {
-                    /*for (int i = 0; i < 10;i++){
-                        gridgrafico.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
-                    }
-                    for (int j = 0; j <= 24;j++){
-                        gridgrafico.ColumnDefinitions.Add(new ColumnDefinition{Width = new GridLength(1,GridUnitType.Auto)});
-                    }*/
+                   
                     trabajarGrafo();
                 };
             }
@@ -197,9 +192,57 @@ namespace Hygia.View
 
         public void cargarCentrosCercanos(List<Hospital> lista){
             foreach(Hospital hosp in lista){
-                scllcercanos.Children.Add(new CentrosCercanos(hosp));
+                var part = this.hospital.distancia.Split(' ');
+                scllcercanos.Children.Add(new CentrosCercanos(hosp,float.Parse(part[0])));
             }
         }
+
+        public List<Hospital> ObtenerHospCercanos(Hospital hosp,System.Collections.IEnumerable listaInicial)
+		{
+			int i = 0;
+			int posicion = 0;
+			int inicial = 0;
+			int final = 0;
+			List<Hospital> listaactual = new List<Hospital>();
+			List<Hospital> lista = new List<Hospital>();
+			foreach (Hospital hospital in listaInicial)
+			{
+				if (hospital.id == hosp.id)
+				{
+					posicion = i;
+				}
+				listaactual.Add(hospital);
+				i++;
+			}
+
+			if (posicion <= 3)
+			{
+				inicial = 0;
+			}
+			else
+			{
+				inicial = posicion - 3;
+			}
+
+			if (i > posicion + 3)
+			{
+				final = posicion + 3;
+			}
+			else
+			{
+                final = i - 1;
+			}
+
+			for (int j = inicial; j <= final; j++)
+			{
+				if (listaactual[j].id != hosp.id)
+				{
+					lista.Add(listaactual[j]);
+				}
+			}
+			return lista;
+
+		}
     }
 }
    

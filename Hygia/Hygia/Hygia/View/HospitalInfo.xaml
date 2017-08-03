@@ -159,6 +159,7 @@
                     <ScrollView
                         Orientation="Horizontal">
                         <StackLayout x:Name="scllcercanos"
+                            
                             Orientation="Horizontal">
                         </StackLayout>
                     </ScrollView>
