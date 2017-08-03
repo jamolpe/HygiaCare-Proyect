@@ -13,7 +13,7 @@ namespace Hygia.View
             InitializeComponent();
             setNombre(hosp.Nombre);
             setDistancia(hosp.distancia);
-
+            coloreartiempo(hosp);
         }
 
         public void setNombre(string nombre){
@@ -21,6 +21,13 @@ namespace Hygia.View
         }
         public void setDistancia(string distancia){
             lblDistancia.Text = distancia;
+        }
+        public void coloreartiempo(Hospital hosp){
+            if(hosp.distancia == "15"){
+                recuadro.BackgroundColor = Color.Aqua;
+            }else{
+                recuadro.BackgroundColor = Color.ForestGreen;
+            }
         }
     }
 }
