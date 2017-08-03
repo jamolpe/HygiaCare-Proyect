@@ -155,6 +155,15 @@
                     </ScrollView>
                 </Frame>
                 </StackLayout>
+                <StackLayout>
+                    <ScrollView
+                        Orientation="Horizontal">
+                        <StackLayout x:Name="scllcercanos"
+                            Orientation="Horizontal">
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+                
             </StackLayout>     
         </ScrollView>
     </ContentPage>

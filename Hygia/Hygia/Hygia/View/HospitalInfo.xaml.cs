@@ -8,9 +8,7 @@ using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 using System.Threading.Tasks;
 using static Hygia.ViewModel.GoogleDirectionsJSONTranslation;
-using OxyPlot;
-using OxyPlot.Series;
-using OxyPlot.Axes;
+
 
 namespace Hygia.View
 {
@@ -27,7 +25,7 @@ namespace Hygia.View
         HospitalInfoViewModel info;
         List<OcupacionHoras> OcupacionH;
 
-        public HospitalInfo(Hospital hospital)
+        public HospitalInfo(Hospital hospital,List<Hospital> listcercanos)
         {
             InitializeComponent();
             this.Title = hospital.Nombre;
@@ -38,7 +36,7 @@ namespace Hygia.View
             AddPin();
             MoveToPing();
             obtenerDatosPantalla();
-
+            cargarCentrosCercanos(listcercanos);
         }
 
         public void AddPin()
@@ -195,6 +193,12 @@ namespace Hygia.View
         public int formatearHoras(String hora){
             var part = hora.Split(':');
             return Int32.Parse(part[0]);
+        }
+
+        public void cargarCentrosCercanos(List<Hospital> lista){
+            foreach(Hospital hosp in lista){
+                scllcercanos.Children.Add(new CentrosCercanos(hosp));
+            }
         }
     }
 }
