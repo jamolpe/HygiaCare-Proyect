@@ -30,7 +30,7 @@ namespace Hygia.View
         public void coloreartiempo(Hospital hosp,float distanciapadre){
             var part = hosp.distancia.Split(' ');
             if(float.Parse(part[0]) > distanciapadre){
-                recuadro.BackgroundColor = Color.Aqua;
+                recuadro.BackgroundColor = Color.FromRgb(255, 153, 153);
             }else{
                 recuadro.BackgroundColor = Color.FromRgb(153, 255, 153);
             }
@@ -41,7 +41,6 @@ namespace Hygia.View
 			tapGesture.Tapped += OnFrameTapped;
 			return tapGesture;
 		}
-		// Set text to overlay Label and make it visible.
 		void OnFrameTapped(object sender, EventArgs args)
 		{
 			Frame frame = (Frame)sender;

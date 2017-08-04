@@ -28,16 +28,14 @@ namespace Hygia.View
         public HospitalInfo(Hospital hospital,System.Collections.IEnumerable listahospitales)
         {
             InitializeComponent();
-            this.Title = hospital.Nombre;
-            this.hospital = hospital;
-            //this.Titulo.Text = hospital.Nombre;
-            this.hospital = hospital;
 
+			this.Title = hospital.Nombre;
+            this.hospital = hospital;
             AddPin();
             MoveToPing();
             obtenerDatosPantalla();
             if(hospital.distancia != null){
-				cargarCentrosCercanos(ObtenerHospCercanos(hospital, listahospitales));
+			cargarCentrosCercanos(ObtenerHospCercanos(hospital, listahospitales));
 			}
 		}
 
