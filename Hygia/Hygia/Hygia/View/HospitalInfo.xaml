@@ -86,60 +86,11 @@
                     </StackLayout>
                   </StackLayout>
                 </StackLayout>
-                <!--
-                <Frame x:Name="frameDistancia"
-                        AbsoluteLayout.LayoutBounds="0.,.50,0.5,0.20"
-                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                        Margin="10"
-                        Padding="10"
-                        BackgroundColor="#b9f6ca">
-                    <StackLayout HorizontalOptions="Center">
-                        <Label Text="Distancia"
-                               Font="Bold,20"></Label>
-                        <AbsoluteLayout>
-                            <ActivityIndicator  x:Name="ACCargandoDistancia" 
-                                    AbsoluteLayout.LayoutBounds="0.5,.5,0.75,0.75"
-                                    AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                                    Color="White" 
-                                    IsRunning="true" 
-                                    ></ActivityIndicator>
-                            <Label x:Name="LblDistancia"
-                               FontSize="Large"
-                               AbsoluteLayout.LayoutBounds="0.5,.5"
-                               AbsoluteLayout.LayoutFlags="XProportional,YProportional"
-                               VerticalOptions="Center"></Label>
-                        </AbsoluteLayout>
-                    </StackLayout>
-                </Frame >
 
-                <Frame  AbsoluteLayout.LayoutBounds="1.,.50,0.5,0.20"
-                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                        BackgroundColor="#ffccbc"
-                        Margin="10"
-                        Padding="10">
-                    <StackLayout HorizontalOptions="Center">
-                        <Label Text="Tiempo ida"
-                               Font="Bold,20"></Label>
-                        <AbsoluteLayout>
-                            <ActivityIndicator  x:Name="ACCargandoTiempo" 
-                                    AbsoluteLayout.LayoutBounds="0.5,.5,0.75,0.75"
-                                    AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                                    Color="White" 
-                                    IsRunning="true">
-                            </ActivityIndicator>
-                            <Label x:Name="LblTiempo"
-                               FontSize="Large"
-                               AbsoluteLayout.LayoutBounds="0.5,.5"
-                               AbsoluteLayout.LayoutFlags="XProportional,YProportional"
-                               VerticalOptions="Center"></Label>
-                        </AbsoluteLayout>
-                    </StackLayout>
-                </Frame>
-                -->
                 <StackLayout Margin="0,5,0,0">
-                    <Label Text="Ocupacion por horas"
-                        FontSize="20"
-                    HorizontalOptions="Center"></Label>
+                    <BoxView BackgroundColor="#cccccc"
+                    HeightRequest="1"
+                    WidthRequest="100"></BoxView>
                 <StackLayout 
                         BackgroundColor="#F5F5F5"
                         Padding="10">
