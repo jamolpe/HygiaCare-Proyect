@@ -32,7 +32,7 @@ namespace Hygia.View
             if(float.Parse(part[0]) > distanciapadre){
                 recuadro.BackgroundColor = Color.Aqua;
             }else{
-                recuadro.BackgroundColor = Color.ForestGreen;
+                recuadro.BackgroundColor = Color.FromRgb(153, 255, 153);
             }
         }
 		public TapGestureRecognizer nTap()

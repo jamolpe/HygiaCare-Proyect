@@ -160,6 +160,13 @@ namespace Hygia.View
             foreach(Hospital hosp in lista){
                 var part = this.hospital.distancia.Split(' ');
                 scllcercanos.Children.Add(new CentrosCercanos(hosp,float.Parse(part[0]),lista));
+                var barra = new BoxView
+                {
+                    HeightRequest = 100,
+                    WidthRequest = 1,
+                    Color=Color.FromRgb(204, 204, 204)
+                };
+                scllcercanos.Children.Add(barra);
             }
         }
 
