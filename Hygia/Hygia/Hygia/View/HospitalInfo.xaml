@@ -141,7 +141,7 @@
                         FontSize="20"
                     HorizontalOptions="Center"></Label>
                 <Frame 
-                        BackgroundColor="#e6e6e6"
+                        BackgroundColor="#F5F5F5"
                         Padding="10">
                      <Label
                             Text="Ocupacion por horas">
@@ -150,8 +150,6 @@
                         Orientation="Horizontal">
                        
                         <local:grafico x:Name="grafico"/>
-
-                       <!--<oxy:PlotView x:Name="graph"  VerticalOptions="LayoutOptions.FillAndExpand" HorizontalOptions="LayoutOptions.FillAndExpand" />-->
                     </ScrollView>
                 </Frame>
                 </StackLayout>

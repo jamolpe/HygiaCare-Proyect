@@ -8,12 +8,17 @@ namespace Hygia.View
 {
     public partial class CentrosCercanos : ContentView
     {
-        public CentrosCercanos(Hospital hosp,float distanciapadre)
+        public System.Collections.IEnumerable listaHospitales;
+        public Hospital referencia;
+        public CentrosCercanos(Hospital hosp,float distanciapadre,System.Collections.IEnumerable lista)
         {
             InitializeComponent();
+            listaHospitales = lista;
             setNombre(hosp.Nombre);
+            referencia = hosp;
             setDistancia(hosp.distancia);
             coloreartiempo(hosp,distanciapadre);
+            recuadro.GestureRecognizers.Add(nTap());
         }
 
         public void setNombre(string nombre){
@@ -30,5 +35,17 @@ namespace Hygia.View
                 recuadro.BackgroundColor = Color.ForestGreen;
             }
         }
+		public TapGestureRecognizer nTap()
+		{
+			TapGestureRecognizer tapGesture = new TapGestureRecognizer();
+			tapGesture.Tapped += OnFrameTapped;
+			return tapGesture;
+		}
+		// Set text to overlay Label and make it visible.
+		void OnFrameTapped(object sender, EventArgs args)
+		{
+			Frame frame = (Frame)sender;
+            Navigation.PushAsync(new HospitalInfo(referencia, listaHospitales));
+		}
     }
 }

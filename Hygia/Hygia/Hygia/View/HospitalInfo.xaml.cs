@@ -36,7 +36,9 @@ namespace Hygia.View
             AddPin();
             MoveToPing();
             obtenerDatosPantalla();
-            cargarCentrosCercanos(ObtenerHospCercanos(hospital,listahospitales));
+            if(hospital.distancia != null){
+				cargarCentrosCercanos(ObtenerHospCercanos(hospital, listahospitales));
+			}
 		}
 
         public void AddPin()
@@ -144,47 +146,11 @@ namespace Hygia.View
                 grafos.Add(box);
             }
             grafico.graficoBox(grafos);
-        
-            /*
-              foreach(OcupacionHoras ocupacion in OcupacionH){
-                StackLayout stack = new StackLayout()
-                {
-                    BackgroundColor = Color.Blue
-                };
-                stack.HorizontalOptions = LayoutOptions.Center;
-                var hora = formatearHoras(ocupacion.Hora);
-                for (int i = 0; i <= ocupacion.ocupacion;i++){
-                    gridgrafico.Children.Add(stack, hora, i);
-                }
-
-            }
-
-            var modelEx = new PlotModel { Title = "Example 1" };
-            this.graph.Model = GraficoHoras().Result;
-            */
+       
             
         }
 
-        /*
-        public async Task<PlotModel> GraficoHoras()
-        {
-            var plotModel = new PlotModel { Title = "Ocupacion por horas" };
-
-
-            foreach (OcupacionHoras ocupacion in OcupacionH)
-            {
-                var s1 = new BarSeries { Title = ocupacion.Hora, StrokeColor = OxyColors.Aqua };
-                s1.Items.Add(new BarItem{Value = ocupacion.ocupacion});
-				plotModel.Series.Add(s1);
-            }
-            var valueAxis = new LinearAxis { Position = AxisPosition.Bottom, MinimumPadding = 0, MaximumPadding = 0.06, AbsoluteMinimum = 0 };
-            var categoryAxis = new CategoryAxis { Position = AxisPosition.Bottom };
-			categoryAxis.Labels.Add("Category A");
-            plotModel.Axes.Add(categoryAxis);
-            plotModel.Axes.Add(valueAxis);
-			return plotModel;
-        }
-        */
+       
         public int formatearHoras(String hora){
             var part = hora.Split(':');
             return Int32.Parse(part[0]);
@@ -193,7 +159,7 @@ namespace Hygia.View
         public void cargarCentrosCercanos(List<Hospital> lista){
             foreach(Hospital hosp in lista){
                 var part = this.hospital.distancia.Split(' ');
-                scllcercanos.Children.Add(new CentrosCercanos(hosp,float.Parse(part[0])));
+                scllcercanos.Children.Add(new CentrosCercanos(hosp,float.Parse(part[0]),lista));
             }
         }
 

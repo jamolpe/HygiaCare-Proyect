@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Hygia.View.CentrosCercanos">
 	<ContentView.Content>
-        <Frame
+        <StackLayout
+            Opacity ="10"
             x:Name="recuadro"
+            Padding = "10"
             Margin="5">
             <StackLayout>
 
-            <Label x:Name="lblnombre"
-                FontSize="Small">
+            <Label x:Name="lblnombre">
             </Label>
-            <Label x:Name="lblDistancia">
+            <Label x:Name="lblDistancia"
+                    FontSize="Small">
             </Label>
             </StackLayout>
-        </Frame>
+        </StackLayout>
 	</ContentView.Content>
 </ContentView>
