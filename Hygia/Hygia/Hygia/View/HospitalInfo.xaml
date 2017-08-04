@@ -9,13 +9,6 @@
     <ContentPage>
         <ScrollView>
             <StackLayout x:Name="Abs">
-                <!--<StackLayout AbsoluteLayout.LayoutBounds="0.5,0."
-                          AbsoluteLayout.LayoutFlags="XProportional,YProportional">
-                    <Label x:Name="Titulo"
-                   HorizontalOptions="Center"
-                   FontSize="40"
-                   ></Label>
-                </StackLayout>-->
                 <StackLayout 
                            BackgroundColor="Transparent"
                             Margin="0,0,0,10">
@@ -28,7 +21,6 @@
                 </StackLayout>
                 <StackLayout 
                         Orientation="Horizontal">
-                  
                     <StackLayout x:Name="frameDistancia" 
                             Orientation = "Horizontal"
                             HorizontalOptions = "StartAndExpand"
@@ -113,7 +105,8 @@
                     <ScrollView
                         Orientation="Horizontal">
                         <StackLayout x:Name="scllcercanos"
-                            Orientation="Horizontal">
+                            Orientation="Horizontal"
+                            BackgroundColor="#F5F5F5">
                         </StackLayout>
                     </ScrollView>
                 </StackLayout>
