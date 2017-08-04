@@ -9,13 +9,6 @@
     <ContentPage>
         <ScrollView>
             <StackLayout x:Name="Abs">
-                <!--<StackLayout AbsoluteLayout.LayoutBounds="0.5,0."
-                          AbsoluteLayout.LayoutFlags="XProportional,YProportional">
-                    <Label x:Name="Titulo"
-                   HorizontalOptions="Center"
-                   FontSize="40"
-                   ></Label>
-                </StackLayout>-->
                 <StackLayout 
                            BackgroundColor="Transparent"
                             Margin="0,0,0,10">
@@ -28,7 +21,6 @@
                 </StackLayout>
                 <StackLayout 
                         Orientation="Horizontal">
-                  
                     <StackLayout x:Name="frameDistancia" 
                             Orientation = "Horizontal"
                             HorizontalOptions = "StartAndExpand"
@@ -86,61 +78,12 @@
                     </StackLayout>
                   </StackLayout>
                 </StackLayout>
-                <!--
-                <Frame x:Name="frameDistancia"
-                        AbsoluteLayout.LayoutBounds="0.,.50,0.5,0.20"
-                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                        Margin="10"
-                        Padding="10"
-                        BackgroundColor="#b9f6ca">
-                    <StackLayout HorizontalOptions="Center">
-                        <Label Text="Distancia"
-                               Font="Bold,20"></Label>
-                        <AbsoluteLayout>
-                            <ActivityIndicator  x:Name="ACCargandoDistancia" 
-                                    AbsoluteLayout.LayoutBounds="0.5,.5,0.75,0.75"
-                                    AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                                    Color="White" 
-                                    IsRunning="true" 
-                                    ></ActivityIndicator>
-                            <Label x:Name="LblDistancia"
-                               FontSize="Large"
-                               AbsoluteLayout.LayoutBounds="0.5,.5"
-                               AbsoluteLayout.LayoutFlags="XProportional,YProportional"
-                               VerticalOptions="Center"></Label>
-                        </AbsoluteLayout>
-                    </StackLayout>
-                </Frame >
 
-                <Frame  AbsoluteLayout.LayoutBounds="1.,.50,0.5,0.20"
-                        AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                        BackgroundColor="#ffccbc"
-                        Margin="10"
-                        Padding="10">
-                    <StackLayout HorizontalOptions="Center">
-                        <Label Text="Tiempo ida"
-                               Font="Bold,20"></Label>
-                        <AbsoluteLayout>
-                            <ActivityIndicator  x:Name="ACCargandoTiempo" 
-                                    AbsoluteLayout.LayoutBounds="0.5,.5,0.75,0.75"
-                                    AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional,HeightProportional"
-                                    Color="White" 
-                                    IsRunning="true">
-                            </ActivityIndicator>
-                            <Label x:Name="LblTiempo"
-                               FontSize="Large"
-                               AbsoluteLayout.LayoutBounds="0.5,.5"
-                               AbsoluteLayout.LayoutFlags="XProportional,YProportional"
-                               VerticalOptions="Center"></Label>
-                        </AbsoluteLayout>
-                    </StackLayout>
-                </Frame>
-                -->
-                <StackLayout Margin="0,20">
-                    <Label Text="Ocupacion por horas"
-                        FontSize="20"
-                    HorizontalOptions="Center"></Label>
-                <Frame 
+                <StackLayout Margin="0,5,0,0">
+                    <BoxView BackgroundColor="#cccccc"
+                    HeightRequest="1"
+                    WidthRequest="100"></BoxView>
+                <StackLayout 
                         BackgroundColor="#F5F5F5"
                         Padding="10">
                      <Label
@@ -151,14 +94,19 @@
                        
                         <local:grafico x:Name="grafico"/>
                     </ScrollView>
-                </Frame>
                 </StackLayout>
+                    
+                </StackLayout>
+                <BoxView BackgroundColor="#cccccc"
+                    HeightRequest="1"
+                    WidthRequest="100"
+                    Margin="10,0,10,0"></BoxView>
                 <StackLayout>
                     <ScrollView
                         Orientation="Horizontal">
                         <StackLayout x:Name="scllcercanos"
-                            
-                            Orientation="Horizontal">
+                            Orientation="Horizontal"
+                            BackgroundColor="#F5F5F5">
                         </StackLayout>
                     </ScrollView>
                 </StackLayout>

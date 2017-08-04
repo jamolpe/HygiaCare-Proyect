@@ -28,16 +28,14 @@ namespace Hygia.View
         public HospitalInfo(Hospital hospital,System.Collections.IEnumerable listahospitales)
         {
             InitializeComponent();
-            this.Title = hospital.Nombre;
-            this.hospital = hospital;
-            //this.Titulo.Text = hospital.Nombre;
-            this.hospital = hospital;
 
+			this.Title = hospital.Nombre;
+            this.hospital = hospital;
             AddPin();
             MoveToPing();
             obtenerDatosPantalla();
             if(hospital.distancia != null){
-				cargarCentrosCercanos(ObtenerHospCercanos(hospital, listahospitales));
+			cargarCentrosCercanos(ObtenerHospCercanos(hospital, listahospitales));
 			}
 		}
 
@@ -160,6 +158,14 @@ namespace Hygia.View
             foreach(Hospital hosp in lista){
                 var part = this.hospital.distancia.Split(' ');
                 scllcercanos.Children.Add(new CentrosCercanos(hosp,float.Parse(part[0]),lista));
+                var barra = new BoxView
+                {
+                    HeightRequest = 10,
+                    WidthRequest = 1,
+                    Color=Color.FromRgb(204, 204, 204),
+                    Margin = new Thickness(0,10,0,10)
+                };
+                scllcercanos.Children.Add(barra);
             }
         }
 
