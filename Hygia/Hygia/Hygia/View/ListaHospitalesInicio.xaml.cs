@@ -55,44 +55,10 @@ namespace Hygia.View
             Hospital selected = (Hospital)e.Item;
 
             ((ListView)sender).SelectedItem = null;
-            Navigation.PushAsync(new HospitalInfo(selected,ObtenerHospCercanos(selected)));
+            Navigation.PushAsync(new HospitalInfo(selected,ListHospitales.ItemsSource));
         }
 
-        public List<Hospital> ObtenerHospCercanos(Hospital hosp){
-            int i = 0;
-            int posicion=0;
-            int inicial = 0;
-            int final = 0;
-            List<Hospital> listaactual = new List<Hospital>();
-            List<Hospital> lista = new List<Hospital>();
-            foreach(Hospital hospital in ListHospitales.ItemsSource){
-                if(hospital.id == hosp.id){
-                    posicion = i;
-                }
-                listaactual.Add(hospital);
-                i++;
-            }
 
-            if(posicion <= 3){
-                inicial = 0;
-            }else{
-                inicial = posicion - 3;
-            }
-
-            if (i <= posicion + 3){
-                final = i;
-            }else{
-                final = posicion + 3;
-            }
-
-            for (int j = inicial; j <= final; j++){
-                if( listaactual[j].id != hosp.id){
-                    lista.Add(listaactual[j]);
-                }
-            }
-            return lista;
-
-        }
 		public async Task ObtenerTodoslosHospitales(){
 			if (await HospitalesList.ObtenerHospitales())
 			{
