@@ -95,7 +95,7 @@ namespace Hygia.DataService
 
 		public async Task getHospitalesAPI(){
 			listaHos = new List<Hospital>();
-			var uri = new Uri("http://apihsp.azurewebsites.net/hospitales");
+			var uri = new Uri("-----");
 			var httpClient = new HttpClient();
 			var response = await httpClient.GetAsync(uri);
 			if (response.IsSuccessStatusCode)
@@ -130,7 +130,7 @@ namespace Hygia.DataService
         public async Task ObtenerHorasAPI(int id)
         {
             Dictionary<string, int> Hosphours = new Dictionary<string, int>();
-			var uri = new Uri("http://apihsp.azurewebsites.net/ocupacionhoras/"+id);
+			var uri = new Uri("http://-----/"+id);
 			var httpClient = new HttpClient();
 			var response = await httpClient.GetAsync(uri);
 			if (response.IsSuccessStatusCode)
